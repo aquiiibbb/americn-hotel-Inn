@@ -1,0 +1,752 @@
+/* 1. Global Reset & Base Settings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* 2. Main Layout Containers */
+.hotel-container {
+  width: 100%;
+  padding: 40px 20px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.hotel-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 1200px;
+  padding: 50px;
+  border: none;
+  box-shadow: none;
+}
+
+/* 3. Typography & Badges */
+.hotel-badge {
+  display: inline-block;
+  background: linear-gradient(96deg, #6499fb, #065af3);
+  color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-transform: none;
+}
+
+.hotel-name {
+  font-size: 48px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 30px 0;
+  line-height: 1.2;
+}
+
+/* 4. Contact Information */
+.contact-info {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #ffffff, #ffffff);
+  border-radius: 0 0 0 25px;
+  box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+  margin-bottom: 30px;
+}
+
+.contact-row {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #000000;
+  line-height: 1.6;
+}
+
+.contact-item .icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.contact-item a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+/* 5. Legacy Amenities (Optional) */
+.amenities {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.amenity-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.amenity-card:hover {
+  border-color: #000000;
+  background: #ffffff;
+}
+
+.amenity-icon {
+  font-size: 24px;
+  color: #000000;
+}
+
+.amenity-text {
+  font-size: 15px;
+  color: #000000;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/* =========================================
+   NEW AMENITIES SECTION STYLES (FROM PHOTO)
+   ========================================= */
+
+/* Top Row Cards (Pills) */
+.amenities-top-row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.amenity-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px 20px;
+  min-width: 160px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.amenity-pill:hover {
+  border-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* Detailed List Grid */
+.amenities-list-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px 30px;
+  margin-bottom: 30px;
+}
+
+.amenity-list-item {
+  font-size: 15px;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bullet-point {
+  font-size: 18px;
+  line-height: 0;
+  margin-bottom: 2px;
+}
+
+/* View All Button */
+.amenities-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.view-all-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: lowercase;
+  box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+  transition: background 0.2s;
+}
+
+.view-all-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* 6. Layout Elements & About */
+.divider {
+  border: none;
+  height: 1px;
+  background: #e0e0e0;
+  margin: 40px 0;
+}
+
+.about-section {
+  background: #ffffff;
+}
+
+.about-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 24px;
+}
+
+.about-description {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #000000;
+  text-align: justify;
+  font-weight: 400;
+}
+
+/* =========================================
+   7. ROOMS SECTION STYLES
+   ========================================= */
+
+.room-card {
+  display: flex;
+  background: #ffffff;
+  border: 1px solid #f0f0f0;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.room-image-wrapper {
+  width: 40%;
+  position: relative;
+  min-height: 280px;
+  background-color: #f3f4f6;
+  overflow: hidden;
+}
+
+.room-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1;
+}
+
+.room-image.active {
+  opacity: 1;
+  z-index: 2;
+  transform: scale(1.05);
+  transition: opacity 1s ease-in-out, transform 6s ease;
+}
+
+.gallery-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 600;
+  z-index: 5;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.room-details {
+  width: 60%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.room-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 5px;
+  letter-spacing: -0.5px;
+}
+
+.room-subtitle {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.room-icons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.room-icons span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #f5f7fa;
+  border-radius: 50%;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.room-icons span:hover {
+  background: #e0e7ff;
+  color: #2563eb;
+}
+
+.view-amenities {
+  font-size: 13px;
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px dashed #2563eb;
+  margin-left: auto;
+}
+
+.room-description {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.availability-tag {
+  display: inline-flex;
+  align-items: center;
+  background: #ecfdf5;
+  color: #059669;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  width: fit-content;
+  border: 1px solid #d1fae5;
+}
+
+.rate-plans-container {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 20px;
+  margin-top: auto;
+}
+
+.plan-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  border-radius: 8px;
+  transition: background 0.2s;
+  border: 1px solid transparent;
+}
+
+.plan-row:hover {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.plan-name {
+  font-weight: 700;
+  font-size: 16px;
+  color: #1e293b;
+  margin-bottom: 2px;
+}
+
+.plan-desc {
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+  color: #9ca3af;
+  margin-left: 8px;
+  font-weight: normal;
+}
+
+.book-btn {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+}
+
+.book-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+}
+
+.book-btn:active {
+  transform: translateY(0);
+}
+
+/* --- House Rules Section --- */
+.house-rules-section {
+  margin-top: 40px;
+}
+
+.policy-card {
+  background: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 20px 0;
+}
+
+.policy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  cursor: pointer;
+  padding: 10px 0;
+  transition: background-color 0.2s ease;
+}
+
+.policy-header:hover {
+  opacity: 0.7;
+}
+
+.policy-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.check-icon {
+  font-size: 18px;
+  color: #000;
+  font-weight: bold;
+}
+
+.policy-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+}
+
+.policy-arrow {
+  font-size: 18px;
+  color: #2563eb;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.policy-arrow.open {
+  transform: rotate(180deg);
+}
+
+.policy-text {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+  padding-left: 30px;
+  margin-top: 10px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CSS for Location Map */
+.location-section {
+  margin-top: 40px;
+}
+
+.map-container {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================
+   9. AMENITIES MODAL (POPUP) STYLES
+   ========================================= */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background: #ffffff;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+}
+
+.modal-header {
+  padding: 15px;
+  display: flex;
+  justify-content: flex-end;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.close-modal-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.close-modal-btn:hover {
+  background: #1d4ed8;
+}
+
+.modal-body {
+  padding: 0 40px 40px 40px;
+  overflow-y: auto;
+}
+
+.modal-section {
+  margin-bottom: 30px;
+}
+
+.modal-section-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.modal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: #333;
+  font-weight: 400;
+}
+
+.check-mark {
+  color: #000080;
+  /* Dark Blue checkmark */
+  font-weight: 800;
+  font-size: 18px;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   10. RESPONSIVE ADJUSTMENTS (ALL SECTIONS)
+   ========================================= */
+
+@media (max-width: 768px) {
+  .hotel-container {
+    padding: 20px 15px;
+  }
+
+  .hotel-card {
+    padding: 20px 0;
+  }
+
+  .hotel-name {
+    font-size: 36px;
+  }
+
+  .contact-row {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .room-card {
+    flex-direction: column;
+  }
+
+  .room-image-wrapper {
+    width: 100%;
+    height: 250px;
+    min-height: auto;
+  }
+
+  .room-details {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .plan-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .book-btn {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .policy-text {
+    padding-left: 0;
+  }
+
+  .amenities-list-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .hotel-name {
+    font-size: 30px;
+  }
+
+  .hotel-badge {
+    font-size: 13px;
+    padding: 7px 16px;
+  }
+
+  .amenity-text {
+    font-size: 14px;
+  }
+
+  .amenities-list-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .amenities-top-row {
+    flex-direction: column;
+  }
+
+  .amenity-pill {
+    width: 100%;
+  }
+
+  /* Mobile Modal Adjustments */
+  .modal-content {
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+  }
+
+  .modal-body {
+    padding: 20px;
+  }
+}

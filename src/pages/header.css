@@ -1,0 +1,38 @@
+.nav {
+  color: white;
+  background-color: black;
+  height: 50px;
+  width: 100%;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 12px;
+}
+
+.nav a.active {
+  color: #00ffcc;
+}
+
+.clock {
+    
+  margin-left: auto;       /* pushes time to right */
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap; 
+    padding: 10px 20px;
+    /* prevents line break */
+}
+
+.com{
+    height:fit-content;
+    width: 100%;
+    background-color: white;
+    
+  
+
+}
