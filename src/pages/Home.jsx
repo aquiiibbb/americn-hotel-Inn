@@ -1,4 +1,5 @@
 import './home.css'
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
@@ -33,33 +34,10 @@ export default function Home() {
   const [favorites, setFavorites] = useState({});
   const [checkInDate, setCheckInDate] = useState(new Date('2026-02-10'));
   const [checkOutDate, setCheckOutDate] = useState(new Date('2026-02-12'));
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoSliding, setIsAutoSliding] = useState(true);
 
-  const handleBooking = () => {
-    if (!selectedHotel) {
-      alert('Please select a hotel first');
-      return;
-    }
-
-    // Direct booking engine URLs - external links
-    const hotelLinks = {
-      'hotel1': 'https://bookingengine.stayflexi.com/?hotel_id=32698',
-      'hotel2': 'https://bookingengine.stayflexi.com/?hotel_id=32285',
-      'hotel3': 'https://bookingengine.stayflexi.com/?hotel_id=32249'
-    };
-
-    const url = hotelLinks[selectedHotel];
-
-    // External link ke liye naya tab mein kholo
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
-
-  const toggleFavorite = (id) => {
-    setFavorites(prev => ({
-      ...prev,
-      [id]: !prev[id]
-    }));
-  };
-
+  // MOVE THESE ARRAYS TO THE TOP - BEFORE ANY FUNCTIONS THAT USE THEM
   const sliderImages = [image16, image18, image17, image21];
   const properties = [
     {
@@ -100,9 +78,62 @@ export default function Home() {
         { icon: <FaCar />, name: "Parking" },
         { icon: <FaBuilding />, name: "Business" }
       ]
+    },
+    {
+      id: 4,
+      name: "American Star Inn - Floydada",
+      location: "Texas",
+      link: "/floydada",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyuJbvWf_HufPlKFsGCzfoDTiScCxVjh7g8Q&s",
+      amenities: [
+        { icon: <FaSnowflake />, name: "AC" },
+        { icon: <FaWifi />, name: "WiFi" },
+        { icon: <FaCar />, name: "Parking" },
+        { icon: <FaBuilding />, name: "Business" }
+      ]
     }
   ];
 
+  // NOW THE FUNCTIONS CAN USE properties SAFELY
+  const handleBooking = () => {
+    if (!selectedHotel) {
+      alert('Please select a hotel first');
+      return;
+    }
+
+    const hotelLinks = {
+      'hotel1': 'https://bookingengine.stayflexi.com/?hotel_id=32698',
+      'hotel2': 'https://bookingengine.stayflexi.com/?hotel_id=32285',
+      'hotel3': 'https://bookingengine.stayflexi.com/?hotel_id=32249'
+    };
+
+    const url = hotelLinks[selectedHotel];
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
+  const toggleFavorite = (id) => {
+    setFavorites(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
+
+  const nextSlide = () => {
+    setIsAutoSliding(false);
+    setCurrentSlide(prev => (prev + 1) % properties.length);
+  };
+
+  const prevSlide = () => {
+    setIsAutoSliding(false);
+    setCurrentSlide(prev => (prev - 1 + properties.length) % properties.length);
+  };
+
+  const goToSlide = (index) => {
+    setIsAutoSliding(false);
+    setCurrentSlide(index);
+  };
+
+  // useEffects
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
     checkMobile();
@@ -118,6 +149,17 @@ export default function Home() {
     }, 4000);
     return () => clearInterval(interval);
   }, [sliderImages.length]);
+
+  // Auto-slide effect - NOW properties is defined above
+  useEffect(() => {
+    if (!isAutoSliding) return;
+    
+    const interval = setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % properties.length);
+    }, 3000);
+    
+    return () => clearInterval(interval);
+  }, [isAutoSliding, properties.length]);
 
   const labelStyle = {
     color: 'rgba(255,255,255,0.95)',
@@ -494,41 +536,64 @@ export default function Home() {
       <div className="properties-section">
         <h2>Properties to choose from....</h2>
         <div className="properties-container">
-          {properties.map((property) => (
-            <div key={property.id} className="property-card">
-              <div className="property-image">
-                <img src={property.image} alt={property.name} />
-                <button
-                  className="favorite-btn"
-                  onClick={() => toggleFavorite(property.id)}
-                >
-                  {favorites[property.id] ? <FaHeart /> : <FaRegHeart />}
-                </button>
-              </div>
-              <div className="property-content">
-                <div className="location">
-                  <FaMapMarkerAlt className="location-icon" />
-                  <span className="location-text">{property.location}</span>
+          <div 
+            className={`properties-slider ${isAutoSliding ? 'auto-slide' : ''}`}
+            style={{
+              transform: isAutoSliding ? 'none' : `translateX(-${currentSlide * (isMobile ? 300 : 350)}px)`
+            }}
+            onMouseEnter={() => setIsAutoSliding(false)}
+            onMouseLeave={() => setIsAutoSliding(true)}
+          >
+            {properties.map((property) => (
+              <div key={property.id} className="property-card">
+                <div className="property-image">
+                  <img src={property.image} alt={property.name} />
+                  <button
+                    className="favorite-btn"
+                    onClick={() => toggleFavorite(property.id)}
+                  >
+                    {favorites[property.id] ? <FaHeart /> : <FaRegHeart />}
+                  </button>
                 </div>
-                <h3 className="property-name">{property.name}</h3>
-                <div className="property-amenities">
-                  {property.amenities.map((amenity, index) => (
-                    <div key={index} className="amenity-icon" title={amenity.name}>
-                      {amenity.icon}
-                    </div>
-                  ))}
+                <div className="property-content">
+                  <div className="location">
+                    <FaMapMarkerAlt className="location-icon" />
+                    <span className="location-text">{property.location}</span>
+                  </div>
+                  <h3 className="property-name">{property.name}</h3>
+                  <div className="property-amenities">
+                    {property.amenities.map((amenity, index) => (
+                      <div key={index} className="amenity-icon" title={amenity.name}>
+                        {amenity.icon}
+                      </div>
+                    ))}
+                  </div>
+                  <NavLink to={property.link} className="explore-btn">
+                    <span>Explore Now</span>
+                    <FaArrowRight className="explore-arrow" />
+                  </NavLink>
                 </div>
-
-                <NavLink
-                  to={property.link}
-                  className="explore-btn"
-                >
-                  <span>Explore Now</span>
-                  <FaArrowRight className="explore-arrow" />
-                </NavLink>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+        
+        {/* Navigation */}
+        <div className="carousel-nav">
+          <button 
+            className="nav-btn" 
+            onClick={prevSlide}
+                        disabled={currentSlide === 0}
+          >
+            <FaChevronLeft />
+          </button>
+          <button 
+            className="nav-btn" 
+            onClick={nextSlide}
+            disabled={currentSlide === properties.length - 1}
+          >
+            <FaChevronRight />
+          </button>
         </div>
       </div>
     </div>

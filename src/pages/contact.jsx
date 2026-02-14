@@ -21,7 +21,8 @@ export default function Contact() {
   const hotelOptions = [
     { value: "munday", label: "American Star Inn - Munday" },
     { value: "baird", label: "American Star Inn - Baird" },
-    { value: "abilene", label: "American Star Inn - Abilene" }
+    { value: "abilene", label: "American Star Inn - Abilene" },
+    { value: "floydada", label: "American Star Inn - Floydada" }
   ];
 
   // FAQ Data - UPDATED
