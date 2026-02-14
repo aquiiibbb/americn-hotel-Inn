@@ -104,7 +104,8 @@ export default function Home() {
     const hotelLinks = {
       'hotel1': 'https://bookingengine.stayflexi.com/?hotel_id=32698',
       'hotel2': 'https://bookingengine.stayflexi.com/?hotel_id=32285',
-      'hotel3': 'https://bookingengine.stayflexi.com/?hotel_id=32249'
+      'hotel3': 'https://bookingengine.stayflexi.com/?hotel_id=32249',
+      'hotel4': 'https://bookingengine.stayflexi.com/?hotel_id=32249'
     };
 
     const url = hotelLinks[selectedHotel];
@@ -383,6 +384,9 @@ export default function Home() {
                   </option>
                   <option value="hotel3" style={{ color: '#000', fontWeight: '600' }}>
                     ⭐ American Star Inn - Abilene
+                  </option>
+                  <option value="hotel4" style={{ color: '#000', fontWeight: '600' }}>
+                    ⭐ American Star Inn - Floydada
                   </option>
                 </select>
               </div>

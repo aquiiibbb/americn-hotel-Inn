@@ -34,7 +34,8 @@ const Header = () => {
   const hotelBookingLinks = {
     munday: "https://bookingengine.stayflexi.com/?hotel_id=32698",   // American Star Inn - Munday
     baird: "https://bookingengine.stayflexi.com/?hotel_id=32285",    // American Star Inn - Baird  
-    abilene: "https://bookingengine.stayflexi.com/?hotel_id=32249"   // American Star Inn - Abilene
+    abilene: "https://bookingengine.stayflexi.com/?hotel_id=32249" ,  // American Star Inn - Abilene
+    floydada: "https://bookingengine.stayflexi.com/?hotel_id=32250"   // American Star Inn - Floydada
   };
 
   return (
@@ -147,6 +148,19 @@ const Header = () => {
                     <div className="hotel-selector__content">
                       <span className="hotel-selector__name">American Star Inn</span>
                       <span className="hotel-selector__location">Abilene, Texas</span>
+                    </div>
+                    <span className="hotel-selector__chevron">→</span>
+                  </a>
+                  <a 
+                    href={hotelBookingLinks.floydada}
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="hotel-selector__option"
+                  >
+                    <span className="hotel-selector__icon">🏨</span>
+                    <div className="hotel-selector__content">
+                      <span className="hotel-selector__name">American Star Inn</span>
+                      <span className="hotel-selector__location">Floydada, Texas</span>
                     </div>
                     <span className="hotel-selector__chevron">→</span>
                   </a>
