@@ -509,44 +509,46 @@ export default function Home() {
       </div>
 
       {/* Properties Section - Static Grid */}
-      <div className="properties-section">
-        <h2>Properties to choose from....</h2>
-        <div className="properties-container">
-          <div className="properties-slider">
-            {properties.map((property) => (
-              <div key={property.id} className="property-card">
-                <div className="property-image">
-                  <img src={property.image} alt={property.name} />
-                  <button
-                    className="favorite-btn"
-                    onClick={() => toggleFavorite(property.id)}
-                  >
-                    {favorites[property.id] ? <FaHeart /> : <FaRegHeart />}
-                  </button>
+   <div className="properties-section">
+  <h2>Properties to choose from....</h2>
+  <div className="properties-container">
+    <div className="properties-slider">
+      {properties.map((property) => (
+        <div key={property.id} className="property-card">
+          <div className="property-image">
+            <img src={property.image} alt={property.name} />
+            <button
+              className="favorite-btn"
+              onClick={() => toggleFavorite(property.id)}
+              aria-label={`${favorites[property.id] ? 'Remove from' : 'Add to'} favorites`}
+            >
+              {favorites[property.id] ? <FaHeart /> : <FaRegHeart />}
+            </button>
+          </div>
+          <div className="property-content">
+            <div className="location">
+              <FaMapMarkerAlt className="location-icon" />
+              <span className="location-text">{property.location}</span>
+            </div>
+            <h3 className="property-name">{property.name}</h3>
+            <div className="property-amenities">
+              {property.amenities.map((amenity, index) => (
+                <div key={index} className="amenity-icon" title={amenity.name}>
+                  {amenity.icon}
                 </div>
-                <div className="property-content">
-                  <div className="location">
-                    <FaMapMarkerAlt className="location-icon" />
-                    <span className="location-text">{property.location}</span>
-                  </div>
-                  <h3 className="property-name">{property.name}</h3>
-                  <div className="property-amenities">
-                    {property.amenities.map((amenity, index) => (
-                      <div key={index} className="amenity-icon" title={amenity.name}>
-                        {amenity.icon}
-                      </div>
-                    ))}
-                  </div>
-                  <NavLink to={property.link} className="explore-btn">
-                    <span>Explore Now</span>
-                    <FaArrowRight className="explore-arrow" />
-                  </NavLink>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <NavLink to={property.link} className="explore-btn">
+              <span>Explore Now</span>
+              <FaArrowRight className="explore-arrow" />
+            </NavLink>
           </div>
         </div>
-      </div>
+      ))}
+    </div>
+    <div className="scroll-indicator">← Swipe to see more →</div>
+  </div>
+</div>
     </div>
   );
 }
