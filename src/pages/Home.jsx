@@ -34,8 +34,6 @@ export default function Home() {
   const [favorites, setFavorites] = useState({});
   const [checkInDate, setCheckInDate] = useState(new Date('2026-02-10'));
   const [checkOutDate, setCheckOutDate] = useState(new Date('2026-02-12'));
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAutoSliding, setIsAutoSliding] = useState(true);
 
   // MOVE THESE ARRAYS TO THE TOP - BEFORE ANY FUNCTIONS THAT USE THEM
   const sliderImages = [image16, image18, image17, image21];
@@ -119,21 +117,6 @@ export default function Home() {
     }));
   };
 
-  const nextSlide = () => {
-    setIsAutoSliding(false);
-    setCurrentSlide(prev => (prev + 1) % properties.length);
-  };
-
-  const prevSlide = () => {
-    setIsAutoSliding(false);
-    setCurrentSlide(prev => (prev - 1 + properties.length) % properties.length);
-  };
-
-  const goToSlide = (index) => {
-    setIsAutoSliding(false);
-    setCurrentSlide(index);
-  };
-
   // useEffects
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
@@ -150,17 +133,6 @@ export default function Home() {
     }, 4000);
     return () => clearInterval(interval);
   }, [sliderImages.length]);
-
-  // Auto-slide effect - NOW properties is defined above
-  useEffect(() => {
-    if (!isAutoSliding) return;
-    
-    const interval = setInterval(() => {
-      setCurrentSlide(prev => (prev + 1) % properties.length);
-    }, 3000);
-    
-    return () => clearInterval(interval);
-  }, [isAutoSliding, properties.length]);
 
   const labelStyle = {
     color: 'rgba(255,255,255,0.95)',
@@ -536,18 +508,11 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Properties Section */}
+      {/* Properties Section - Static Grid */}
       <div className="properties-section">
         <h2>Properties to choose from....</h2>
         <div className="properties-container">
-          <div 
-            className={`properties-slider ${isAutoSliding ? 'auto-slide' : ''}`}
-            style={{
-              transform: isAutoSliding ? 'none' : `translateX(-${currentSlide * (isMobile ? 300 : 350)}px)`
-            }}
-            onMouseEnter={() => setIsAutoSliding(false)}
-            onMouseLeave={() => setIsAutoSliding(true)}
-          >
+          <div className="properties-slider">
             {properties.map((property) => (
               <div key={property.id} className="property-card">
                 <div className="property-image">
@@ -580,24 +545,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-        
-        {/* Navigation */}
-        <div className="carousel-nav">
-          <button 
-            className="nav-btn" 
-            onClick={prevSlide}
-                        disabled={currentSlide === 0}
-          >
-            <FaChevronLeft />
-          </button>
-          <button 
-            className="nav-btn" 
-            onClick={nextSlide}
-            disabled={currentSlide === properties.length - 1}
-          >
-            <FaChevronRight />
-          </button>
         </div>
       </div>
     </div>

@@ -2317,6 +2317,8 @@ body {
   width: 100%;
   overflow: hidden;
   padding: 0 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .properties-slider {
@@ -2324,6 +2326,8 @@ body {
   gap: 30px;
   transition: transform 0.5s ease-in-out;
   padding: 20px 0;
+  justify-content: center;
+  align-items: center;
 }
 
 .property-card {
@@ -2375,18 +2379,6 @@ body {
   opacity: 0.5;
   cursor: not-allowed;
   transform: none;
-}
-
-@keyframes slideAnimation {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-350px); }
-  50% { transform: translateX(-700px); }
-  75% { transform: translateX(-1050px); }
-  100% { transform: translateX(0); }
-}
-
-.auto-slide {
-  animation: slideAnimation 12s infinite;
 }
 
 .property-image {
@@ -2443,6 +2435,7 @@ body {
   align-items: center;
   gap: 8px;
   margin-bottom: 12px;
+  justify-content: center;
 }
 
 .location-icon {
@@ -2464,6 +2457,7 @@ body {
   color: #052a54;
   margin: 12px 0;
   line-height: 1.4;
+  text-align: center;
 }
 
 .property-amenities {
