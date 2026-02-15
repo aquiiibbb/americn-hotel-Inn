@@ -2303,10 +2303,10 @@ body {
 }
 
 .properties-section h2 {
-  font-size: 36px;
+  font-size: clamp(24px, 5vw, 36px);
   font-weight: 700;
   color: #052a54;
-  margin-bottom: 50px;
+  margin-bottom: clamp(30px, 6vw, 50px);
   text-transform: uppercase;
   letter-spacing: 1.2px;
   padding: 0 20px;
@@ -2316,14 +2316,14 @@ body {
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: 0 20px;
+  padding: 0 clamp(15px, 3vw, 20px);
   display: flex;
   justify-content: center;
 }
 
 .properties-slider {
   display: flex;
-  gap: 30px;
+  gap: clamp(20px, 4vw, 30px);
   transition: transform 0.5s ease-in-out;
   padding: 20px 0;
   justify-content: center;
@@ -2331,7 +2331,7 @@ body {
 }
 
 .property-card {
-  flex: 0 0 320px;
+  flex: 0 0 clamp(280px, 35vw, 320px);
   background: white;
   border-radius: 12px;
   overflow: hidden;
@@ -2354,13 +2354,13 @@ body {
 }
 
 .nav-btn {
-  width: 50px;
-  height: 50px;
+  width: clamp(45px, 8vw, 50px);
+  height: clamp(45px, 8vw, 50px);
   border-radius: 50%;
   background: linear-gradient(135deg, #052a54 0%, #073f76 100%);
   border: 2px solid #D4AF37;
   color: white;
-  font-size: 18px;
+  font-size: clamp(16px, 3vw, 18px);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -2384,7 +2384,7 @@ body {
 .property-image {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: clamp(200px, 25vw, 250px);
   overflow: hidden;
   background: #f0f0f0;
 }
@@ -2427,7 +2427,7 @@ body {
 }
 
 .property-content {
-  padding: 20px;
+  padding: clamp(16px, 3vw, 20px);
 }
 
 .location {
@@ -2452,7 +2452,7 @@ body {
 }
 
 .property-name {
-  font-size: 18px;
+  font-size: clamp(16px, 3vw, 18px);
   font-weight: 700;
   color: #052a54;
   margin: 12px 0;
@@ -2471,15 +2471,15 @@ body {
 }
 
 .amenity-icon {
-  width: 36px;
-  height: 36px;
+  width: clamp(32px, 6vw, 36px);
+  height: clamp(32px, 6vw, 36px);
   border-radius: 50%;
   background: linear-gradient(135deg, #afb3b9 0%, #c5ccd3 100%);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: clamp(14px, 2.5vw, 16px);
   transition: all 0.3s ease;
   cursor: pointer;
 }
@@ -2496,13 +2496,13 @@ body {
   justify-content: center;
   gap: 8px;
   width: 100%;
-  padding: 12px 20px;
+  padding: clamp(10px, 2vw, 12px) clamp(16px, 3vw, 20px);
   background: linear-gradient(135deg, #052a54 0%, #073f76 100%);
   color: white;
   text-decoration: none;
   border-radius: 8px;
   font-weight: 700;
-  font-size: 14px;
+  font-size: clamp(12px, 2.5vw, 14px);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
@@ -2527,54 +2527,13 @@ body {
   transform: translateX(3px);
 }
 
+/* Simplified mobile adjustments */
 @media (max-width: 768px) {
   .properties-section {
     padding: 40px 0;
   }
-
-  .properties-section h2 {
-    font-size: 24px;
-    margin-bottom: 30px;
-  }
-
-  .properties-container {
-    padding: 0 15px;
-  }
-
-  .properties-slider {
-    gap: 20px;
-  }
-
-  .property-card {
-    flex: 0 0 280px;
-  }
-
-  .property-image {
-    height: 200px;
-  }
-
-  .property-content {
-    padding: 16px;
-  }
-
-  .property-name {
-    font-size: 16px;
-  }
-
-  .amenity-icon {
-    width: 32px;
-    height: 32px;
-    font-size: 14px;
-  }
-
-  .explore-btn {
-    padding: 10px 16px;
-    font-size: 12px;
-  }
-
-  .nav-btn {
-    width: 45px;
-    height: 45px;
-    font-size: 16px;
+  
+  .property-card:hover {
+    transform: translateY(-4px); /* Reduced hover effect on mobile */
   }
 }
