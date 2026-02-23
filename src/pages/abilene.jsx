@@ -110,8 +110,8 @@ const PropertyHighlights = () => {
   return (
     <div className="abiline-page-highlights-showcase">
       <h2 className="abiline-page-highlights-title">
-        <span className="abiline-page-highlights-emoji">🏨</span>
-        Property Highlights
+        <span className="abiline-page-highlights-emoji"></span>
+        Aminities
       </h2>
 
       <div className="abiline-page-highlights-wrapper">
@@ -170,7 +170,7 @@ const RoomsCarousel = ({ rooms }) => {
   return (
     <div className="abiline-page-rooms-showcase">
       <h2 className="abiline-page-rooms-title">
-        <span className="abiline-page-rooms-emoji">🏨</span>
+        <span className="abiline-page-rooms-emoji"></span>
         Our Rooms
       </h2>
 
