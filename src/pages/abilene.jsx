@@ -15,6 +15,10 @@ const AccommodationCard = ({ accommodation }) => {
     return () => clearInterval(timer);
   }, [accommodation.images.length]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="abiline-page-room-card">
       <div className="abiline-page-room-gallery">

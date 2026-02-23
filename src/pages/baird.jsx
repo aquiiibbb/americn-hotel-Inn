@@ -181,6 +181,10 @@ const BairdRoomsCarousel = ({ rooms }) => {
     }, 5000);
     return () => clearInterval(timer);
   }, [roomSlides.length, isPaused]);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div

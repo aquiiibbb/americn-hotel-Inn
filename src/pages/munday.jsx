@@ -14,7 +14,9 @@ const AccommodationCard = ({ accommodation }) => {
 
     return () => clearInterval(timer);
   }, [accommodation.images.length]);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="hotel-page-room-card">
       <div className="hotel-page-room-gallery">
