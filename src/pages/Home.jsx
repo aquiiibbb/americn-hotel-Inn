@@ -130,7 +130,7 @@ export default function Home() {
       setCurrentImageIndex((prevIndex) =>
         prevIndex === sliderImages.length - 1 ? 0 : prevIndex + 1
       );
-    }, 4000);
+    }, 7000);
     return () => clearInterval(interval);
   }, [sliderImages.length]);
 
@@ -142,7 +142,7 @@ export default function Home() {
     alignItems: 'center',
     gap: '6px',
     marginBottom: isMobile ? '6px' : '8px',
-    textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+    textShadow: '0 2px 4px rgba(0,0,0,0.2)',
     textTransform: 'uppercase',
     letterSpacing: '0.8px'
   };
@@ -155,7 +155,7 @@ export default function Home() {
           width: 100% !important;
           height: ${isMobile ? '32px' : '48px'} !important;
           border: 2px solid rgba(212,175,55,0.5) !important;
-          border-radius: ${isMobile ? '8px' : '10px'} !important;
+         
           font-size: ${isMobile ? '10px' : '14px'} !important;
           font-weight: 600 !important;
           color: #052a54 !important;
@@ -178,7 +178,7 @@ export default function Home() {
         }
         .gold-popper .react-datepicker {
           border: 2px solid #D4AF37 !important;
-          border-radius: 12px !important;
+         
           box-shadow: 0 20px 50px rgba(212,175,55,0.4), 0 8px 30px rgba(0,0,0,0.5) !important;
           background: linear-gradient(145deg, #fffdf9 0%, #f8f6f0 100%) !important;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
@@ -247,20 +247,20 @@ export default function Home() {
         display: 'flex',
         alignItems: 'flex-end',
         overflow: 'hidden',
-        marginTop: isMobile ? '50px' : '70px',
+        marginTop: isMobile ? '20px' : '30px',
         transition: 'background-image 0.8s ease-in-out',
       }}>
         {/* Social Icons */}
-        <div style={{
-          position: 'fixed',
-          right: isMobile ? '8px' : '15px',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          zIndex: 10,
-          display: 'flex',
-          flexDirection: 'column',
-          gap: isMobile ? '8px' : '12px'
-        }}>
+      <div style={{
+  position: 'fixed',
+  right: isMobile ? '8px' : '15px',
+  top: isMobile ? '30%' : '60%',
+  transform: 'translateY(-50%)',
+  zIndex: 10,
+  display: 'flex',
+  flexDirection: 'column',
+  gap: isMobile ? '8px' : '12px'
+}}>
           {[
             { icon: <FaArrowCircleDown />, bg: '#06469a', href: '#contact', title: 'Contact Us' },
             { icon: <FaInstagramSquare />, bg: '#960620', href: 'https://instagram.com/yourhandle', title: 'Follow on Instagram' },
@@ -276,7 +276,7 @@ export default function Home() {
               alignItems: 'center',
               justifyContent: 'center',
               color: 'white',
-              fontSize: isMobile ? '14px' : '18px',
+              fontSize: isMobile ? '13px' : '18px',
               textDecoration: 'none',
               transition: 'all 0.3s ease',
               boxShadow: '0 3px 8px rgba(0,0,0,0.2)',
@@ -296,8 +296,8 @@ export default function Home() {
         {/* Booking Form */}
         <div style={{
           width: '100%',
-          backgroundColor: 'rgba(0, 0, 0, 0.6)',
-          padding: isMobile ? '10px 8px' : '16px 20px',
+          backgroundColor: 'rgba(0, 0, 0, 0.1)',
+          padding: isMobile ? '8px 6px' : '14px 18px',
           display: 'flex',
           justifyContent: 'center',
           borderTop: '1px solid rgba(255,255,255,0.15)',
@@ -330,7 +330,6 @@ export default function Home() {
                     width: '100%',
                     height: isMobile ? '32px' : '48px',
                     border: '2px solid rgba(92, 79, 36, 0.5)',
-                    borderRadius: isMobile ? '8px' : '10px',
                     fontSize: isMobile ? '10px' : '14px',
                     boxSizing: 'border-box',
                     outline: 'none',
@@ -409,9 +408,9 @@ export default function Home() {
                       background: selectedHotel ? 'linear-gradient(135deg, #052a54 0%, #073f76 50%, #0a4d8a 100%)' : 'linear-gradient(135deg, #666 0%, #888 50%, #999 100%)',
                       color: 'white',
                       border: `2px solid ${selectedHotel ? '#D4AF37' : '#999'}`,
-                      borderRadius: '6px',
+                     
                       fontSize: '16px',
-                      fontWeight: '700',
+                      fontWeight: '600',
                       cursor: selectedHotel ? 'pointer' : 'not-allowed',
                       transition: 'all 0.25s ease',
                       boxShadow: '0 3px 12px rgba(5,42,84,0.3)',
@@ -421,7 +420,7 @@ export default function Home() {
                       overflow: 'hidden',
                       fontFamily: 'inherit',
                       top: '-14px',
-                      padding: '10px 36px',
+                      padding: '23px 38px',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',

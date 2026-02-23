@@ -63,7 +63,7 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 20px;
-  box-shadow: 0 10px 30px rgba(53, 19, 139, 0.4);
+  box-shadow: 0 10px 30px rgba(53, 19, 139, 0.2);
   animation: badgePulse 2s ease-in-out infinite;
 }
 

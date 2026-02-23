@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import "./contact.css";
 
 export default function Contact() {
@@ -7,15 +9,16 @@ export default function Contact() {
     name: "",
     email: "",
     phone: "",
-    hotel: "", // NEW
+    hotel: "",
     subject: "",
-    checkIn: "",
-    checkOut: "",
     message: ""
   });
 
+  const [checkInDate, setCheckInDate] = useState(null);
+  const [checkOutDate, setCheckOutDate] = useState(null);
   const [status, setStatus] = useState("");
   const [openFAQ, setOpenFAQ] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   // Hotel options
   const hotelOptions = [
@@ -25,7 +28,7 @@ export default function Contact() {
     { value: "floydada", label: "American Star Inn - Floydada" }
   ];
 
-  // FAQ Data - UPDATED
+  // FAQ Data
   const faqData = [
     {
       question: "What amenities are available at American Star Inn?",
@@ -71,10 +74,10 @@ export default function Contact() {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
-        hotel: formData.hotel, // NEW
+        hotel: formData.hotel,
         subject: formData.subject,
-        checkIn: formData.checkIn,
-        checkOut: formData.checkOut,
+        checkIn: checkInDate ? checkInDate.toISOString().split('T')[0] : '',
+        checkOut: checkOutDate ? checkOutDate.toISOString().split('T')[0] : '',
         message: formData.message
       });
 
@@ -85,12 +88,12 @@ export default function Contact() {
         name: "",
         email: "",
         phone: "",
-        hotel: "", // NEW
+        hotel: "",
         subject: "",
-        checkIn: "",
-        checkOut: "",
         message: ""
       });
+      setCheckInDate(null);
+      setCheckOutDate(null);
 
     } catch (error) {
       console.error(error);
@@ -99,27 +102,27 @@ export default function Contact() {
   };
 
   return (
-    <div className="contact-main-wrapper">
+    <div className="asi-main-wrapper">
       {/* Hero Section */}
-      <div className="contact-hero-banner">
-        <div className="contact-hero-overlay"></div>
-        <div className="contact-hero-content">
-          <p className="contact-hero-welcome">WELCOME</p>
-          <h1 className="contact-hero-title">A modern hotel for the modern world.</h1>
-          <button className="contact-hero-btn">GET TO KNOW US</button>
+      <div className="asi-hero-banner">
+        <div className="asi-hero-overlay"></div>
+        <div className="asi-hero-content">
+          <p className="asi-hero-welcome">WELCOME</p>
+          <h1 className="asi-hero-title">A modern hotel for the modern world.</h1>
+          <button className="asi-hero-btn">GET TO KNOW US</button>
         </div>
       </div>
 
       {/* Decorative Pattern */}
-      <div className="contact-bg-pattern"></div>
+      <div className="asi-bg-pattern"></div>
 
       {/* Why Contact Us Section */}
-      <section className="contact-intro-section">
-        <div className="contact-container">
-          <div className="contact-section-header">
-            <span className="contact-section-badge">Why Reach Out</span>
-            <h2 className="contact-section-title">We're Always Here For You</h2>
-            <p className="contact-section-subtitle">
+      <section className="asi-intro-section">
+        <div className="asi-container">
+          <div className="asi-section-header">
+            <span className="asi-section-badge">Why Reach Out</span>
+            <h2 className="asi-section-title">We're Always Here For You</h2>
+            <p className="asi-section-subtitle">
               Whether you have questions, need assistance, or want to make a reservation, our dedicated team is ready to help 24/7
             </p>
           </div>
@@ -127,16 +130,16 @@ export default function Contact() {
       </section>
 
       {/* Contact Form Section */}
-      <div className="contact-form-wrapper">
-        <div className="contact-container">
-          <h1 className="contact-form-title">Reach Out to Us</h1>
+      <div className="asi-form-wrapper">
+        <div className="asi-container">
+          <h1 className="asi-form-title">Reach Out to Us</h1>
           
-          <div className="contact-form-box">
-            <form onSubmit={handleSubmit} className="contact-form">
+          <div className="asi-form-box">
+            <form onSubmit={handleSubmit} className="asi-form">
               {/* Name Field */}
-              <div className="contact-form-group">
-                <label className="contact-form-label">
-                  NAME<span className="contact-required">*</span>
+              <div className="asi-form-group">
+                <label className="asi-form-label">
+                  NAME<span className="asi-required">*</span>
                 </label>
                 <input
                   type="text"
@@ -144,15 +147,15 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Enter your name"
-                  className="contact-form-input"
+                  className="asi-form-input"
                   required
                 />
               </div>
 
               {/* Email Field */}
-              <div className="contact-form-group">
-                <label className="contact-form-label">
-                  EMAIL<span className="contact-required">*</span>
+              <div className="asi-form-group">
+                <label className="asi-form-label">
+                  EMAIL<span className="asi-required">*</span>
                 </label>
                 <input
                   type="email"
@@ -160,18 +163,18 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Enter your email ID"
-                  className="contact-form-input"
+                  className="asi-form-input"
                   required
                 />
               </div>
 
               {/* Phone Number Field */}
-              <div className="contact-form-group">
-                <label className="contact-form-label">
-                  PHONE NUMBER<span className="contact-required">*</span>
+              <div className="asi-form-group">
+                <label className="asi-form-label">
+                  PHONE NUMBER<span className="asi-required">*</span>
                 </label>
-                <div className="contact-phone-group">
-                  <select className="contact-country-select">
+                <div className="asi-phone-group">
+                  <select className="asi-country-select">
                     <option value="+91">🇮🇳 India (+91)</option>
                     <option value="+1">🇺🇸 United States (+1)</option>
                     <option value="+44">🇬🇧 United Kingdom (+44)</option>
@@ -189,22 +192,22 @@ export default function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="Enter your number"
-                    className="contact-form-input contact-phone-input"
+                    className="asi-form-input asi-phone-input"
                     required
                   />
                 </div>
               </div>
 
-              {/* Hotel Selection - NEW */}
-              <div className="contact-form-group">
-                <label className="contact-form-label">
-                  HOTEL<span className="contact-required">*</span>
+              {/* Hotel Selection */}
+              <div className="asi-form-group">
+                <label className="asi-form-label">
+                  HOTEL<span className="asi-required">*</span>
                 </label>
                 <select
                   name="hotel"
                   value={formData.hotel}
                   onChange={handleChange}
-                  className="contact-form-input"
+                  className="asi-form-input"
                   required
                 >
                   <option value="">Choose a hotel location</option>
@@ -217,9 +220,9 @@ export default function Contact() {
               </div>
 
               {/* Subject Field */}
-              <div className="contact-form-group">
-                <label className="contact-form-label">
-                  SUBJECT<span className="contact-required">*</span>
+              <div className="asi-form-group">
+                <label className="asi-form-label">
+                  SUBJECT<span className="asi-required">*</span>
                 </label>
                 <input
                   type="text"
@@ -227,45 +230,58 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Enter subject"
-                  className="contact-form-input"
+                  className="asi-form-input"
                   required
                 />
               </div>
 
-              {/* Check-in Date */}
-              <div className="contact-form-group">
-                <label className="contact-form-label">
-                  CHECK-IN<span className="contact-required">*</span>
-                </label>
-                <input
-                  type="date"
-                  name="checkIn"
-                  value={formData.checkIn}
-                  onChange={handleChange}
-                  className="contact-form-input"
-                  required
-                />
-              </div>
+              {/* Date Fields - Updated to match other form fields */}
+              <div className="asi-date-group">
+                {/* Check In */}
+                <div className="asi-form-group">
+                  <label className="asi-form-label">
+                    CHECK IN<span className="asi-required">*</span>
+                  </label>
+                  <DatePicker
+                    selected={checkInDate}
+                    onChange={(date) => setCheckInDate(date)}
+                    dateFormat="yyyy-MM-dd"
+                    className="asi-form-input"
+                    popperClassName="asi-blue-popper"
+                    placeholderText="Select Check In Date"
+                    minDate={new Date('2026-02-01')}
+                    maxDate={checkOutDate}
+                    wrapperClassName="asi-date-picker-wrapper"
+                    autoComplete="off"
+                    required
+                  />
+                </div>
 
-              {/* Check-out Date */}
-              <div className="contact-form-group">
-                <label className="contact-form-label">
-                  CHECK-OUT<span className="contact-required">*</span>
-                </label>
-                <input
-                  type="date"
-                  name="checkOut"
-                  value={formData.checkOut}
-                  onChange={handleChange}
-                  className="contact-form-input"
-                  required
-                />
+                {/* Check Out */}
+                <div className="asi-form-group">
+                  <label className="asi-form-label">
+                    CHECK OUT<span className="asi-required">*</span>
+                  </label>
+                  <DatePicker
+                    selected={checkOutDate}
+                    onChange={(date) => setCheckOutDate(date)}
+                    dateFormat="yyyy-MM-dd"
+                    className="asi-form-input"
+                    popperClassName="asi-blue-popper"
+                    placeholderText="Select Check Out Date"
+                    minDate={checkInDate}
+                    maxDate={new Date('2026-12-31')}
+                    wrapperClassName="asi-date-picker-wrapper"
+                    autoComplete="off"
+                    required
+                  />
+                </div>
               </div>
 
               {/* Message Field */}
-              <div className="contact-form-group">
-                <label className="contact-form-label">
-                  MESSAGE<span className="contact-required">*</span>
+              <div className="asi-form-group">
+                <label className="asi-form-label">
+                  MESSAGE<span className="asi-required">*</span>
                 </label>
                 <textarea
                   name="message"
@@ -273,21 +289,21 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder="Enter messages or queries"
                   rows="5"
-                  className="contact-form-textarea"
+                  className="asi-form-textarea"
                   required
                 />
               </div>
 
               {/* Submit Button */}
-              <div className="contact-form-group">
-                <button type="submit" className="contact-submit-btn">
+              <div className="asi-form-group">
+                <button type="submit" className="asi-submit-btn">
                   SUBMIT
                 </button>
               </div>
 
               {/* Status Message */}
               {status && (
-                <div className={`contact-status-msg ${status.includes('Error') ? 'contact-error' : 'contact-success'}`}>
+                <div className={`asi-status-msg ${status.includes('Error') ? 'asi-error' : 'asi-success'}`}>
                   {status}
                 </div>
               )}
@@ -297,29 +313,29 @@ export default function Contact() {
       </div>
 
       {/* FAQ Section */}
-      <section className="contact-faq-section">
-        <div className="contact-container">
-          <div className="contact-section-header">
-            <span className="contact-section-badge">FAQ</span>
-            <h2 className="contact-section-title">Frequently Asked Questions</h2>
-            <p className="contact-section-subtitle">
+      <section className="asi-faq-section">
+        <div className="asi-container">
+          <div className="asi-section-header">
+            <span className="asi-section-badge">FAQ</span>
+            <h2 className="asi-section-title">Frequently Asked Questions</h2>
+            <p className="asi-section-subtitle">
               Quick answers to common questions about our hotel and services
             </p>
           </div>
           
-          <div className="contact-faq-container">
+          <div className="asi-faq-container">
             {faqData.map((faq, index) => (
-              <div key={index} className="contact-faq-item">
+              <div key={index} className="asi-faq-item">
                 <div 
-                  className="contact-faq-question" 
+                  className="asi-faq-question" 
                   onClick={() => toggleFAQ(index)}
                 >
                   <h3>{faq.question}</h3>
-                  <span className={`contact-faq-icon ${openFAQ === index ? 'contact-faq-open' : ''}`}>
+                  <span className={`asi-faq-icon ${openFAQ === index ? 'asi-faq-open' : ''}`}>
                     <i className="fa-solid fa-chevron-down"></i>
                   </span>
                 </div>
-                <div className={`contact-faq-answer ${openFAQ === index ? 'contact-faq-open' : ''}`}>
+                <div className={`asi-faq-answer ${openFAQ === index ? 'asi-faq-open' : ''}`}>
                   <p>{faq.answer}</p>
                 </div>
               </div>
@@ -329,17 +345,17 @@ export default function Contact() {
       </section>
 
       {/* Map Section */}
-      <section className="contact-map-section">
-        <div className="contact-container">
-          <div className="contact-section-header">
-            <span className="contact-section-badge">Location</span>
-            <h2 className="contact-section-title">Find Us Here</h2>
-            <p className="contact-section-subtitle">
+      <section className="asi-map-section">
+        <div className="asi-container">
+          <div className="asi-section-header">
+            <span className="asi-section-badge">Location</span>
+            <h2 className="asi-section-title">Find Us Here</h2>
+            <p className="asi-section-subtitle">
               Company Address: American Star Inn 851 E G St, Munday, TX 76371.
             </p>
           </div>
           
-          <div className="contact-map-wrapper">
+          <div className="asi-map-wrapper">
             <iframe
               title="map"
               src="https://www.google.com/maps/dir/23.2503889,77.4786162/American+Star+Inn+1633+W+Stamford+St,+Abilene,+TX+79601,+1633+W+Stamford+St,+Abilene,+TX+79601,+United+States/@2.7821785,-97.2256459,3.09z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x86568f2fbde216ab:0x86787cb784ed77a2!2m2!1d-99.7390209!2d32.4897124?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D"
@@ -352,18 +368,18 @@ export default function Contact() {
             ></iframe>
           </div>
           
-          <div className="contact-location-details">
-            <div className="contact-detail-item">
+          <div className="asi-location-details">
+            <div className="asi-detail-item">
               <i className="fa-solid fa-location-dot"></i>
               <span><strong>Address:</strong> 851 E G St, Munday, TX 76371</span>
             </div>
             
-            <div className="contact-detail-item">
+            <div className="asi-detail-item">
               <i className="fa-solid fa-phone"></i>
               <span><strong>Phone:</strong>+1 325-673-5424</span>
             </div>
             
-            <div className="contact-detail-item">
+            <div className="asi-detail-item">
               <i className="fa-solid fa-envelope"></i>
               <span><strong>Email:</strong> americaninn@gmail.com</span>
             </div>
@@ -372,7 +388,7 @@ export default function Contact() {
               href="https://maps.app.goo.gl/UEmtAnmPCw5yX7QJ7" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="contact-directions-btn"
+              className="asi-directions-btn"
             >
               <i className="fa-solid fa-diamond-turn-right"></i>
               Get Directions
@@ -381,5 +397,5 @@ export default function Contact() {
         </div>
       </section>
     </div>
-  );
+  );  
 }

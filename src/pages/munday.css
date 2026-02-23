@@ -1,199 +1,322 @@
-/* 1. Global Reset & Base Settings */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  width: 100%;
-  min-height: 100vh;
-  background-color: #ffffff;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-}
-
-/* 2. Main Layout Containers */
+/* Base Styles */
 .hotel-container {
-  width: 100%;
-  padding: 40px 20px;
-  background-color: #ffffff;
-  display: flex;
-  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Add horizontal padding for scroll */
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .hotel-card {
   background: #ffffff;
-  width: 100%;
-  max-width: 1200px;
-  padding: 50px;
-  border: none;
-  box-shadow: none;
-}
-
-/* 3. Typography & Badges */
-.hotel-badge {
-  display: inline-block;
-  background: linear-gradient(96deg, #6499fb, #065af3);
-  color: #ffffff;
-  padding: 8px 20px;
   border-radius: 20px;
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 20px;
-  text-transform: none;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  /* Ensure full width usage */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hotel-name {
-  font-size: 48px;
-  font-weight: 700;
-  color: #000000;
-  margin: 0 0 30px 0;
+  font-size: 36px;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 30px;
+  text-align: center;
   line-height: 1.2;
 }
 
-/* 4. Contact Information */
 .contact-info {
-  display: flex;
-  align-items: center;
-  padding: 12px 20px;
-  background: linear-gradient(135deg, #ffffff, #ffffff);
-  border-radius: 0 0 0 25px;
-  box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.2);
-  flex-shrink: 0;
-}
-
-.contact-row {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-size: 16px;
-  color: #000000;
-  line-height: 1.6;
+  color: #475569;
+  line-height: 1.5;
 }
 
 .contact-item .icon {
   font-size: 18px;
-  flex-shrink: 0;
+  width: 24px;
+  text-align: center;
 }
 
 .contact-item a {
-  color: #000000;
+  color: #3b82f6;
   text-decoration: none;
-  font-weight: 400;
+  transition: color 0.3s ease;
 }
 
 .contact-item a:hover {
-  text-decoration: underline;
+  color: #1d4ed8;
 }
 
-/* 5. Amenities Section */
-.amenities {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 25px;
-}
-
-.amenity-card {
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 16px 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: all 0.2s ease;
-}
-
-.amenity-card:hover {
-  border-color: #000000;
-  background: #ffffff;
-}
-
-.amenity-icon {
-  font-size: 24px;
-  color: #000000;
-}
-
-.amenity-text {
-  font-size: 15px;
-  color: #000000;
-  font-weight: 400;
-  white-space: nowrap;
-}
-
-/* 6. Layout Elements & About */
 .divider {
   border: none;
   height: 1px;
-  background: #e0e0e0;
+  background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
   margin: 40px 0;
 }
 
+/* About Section - Fixed for full visibility */
 .about-section {
-  background: #ffffff;
+  margin: 30px 0;
+  width: 100%;
+  overflow: visible;
 }
 
 .about-title {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
-  color: #000000;
-  margin-bottom: 24px;
+  color: #1e293b;
+  margin-bottom: 20px;
+  line-height: 1.3;
+  width: 100%;
 }
 
 .about-description {
   font-size: 16px;
-  line-height: 1.8;
-  color: #000000;
+  color: #475569;
+  line-height: 1.6;
   text-align: justify;
-  font-weight: 400;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  display: block;
+  /* Remove any constraints */
+  max-width: none;
+  text-overflow: clip;
+  /* Ensure proper spacing */
+  margin: 0;
+  padding: 0;
 }
 
-/* =========================================
-   7. NEW ROOMS SECTION STYLES (ADDED)
-   ========================================= */
+/* Property Highlights Carousel */
+.property-highlights-showcase {
+  margin: 40px 0;
+  width: 100%;
+  overflow: visible;
+}
 
-/* --- Room Card: Modern & Attractive --- */
-.room-card {
-  display: flex;
-  background: #ffffff;
-  border: 1px solid #f0f0f0;
-  /* Subtle border */
-  border-radius: 16px;
-  /* Softer rounded corners */
-  overflow: hidden;
+.highlights-main-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000000;
   margin-bottom: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  /* Soft, luxurious shadow */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.highlights-emoji-icon {
+  font-size: 36px;
+  color: #FFD700;
+}
+
+.highlights-carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #f8fafc;
+  padding: 30px;
+  /* Add more padding for better scroll experience */
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.highlights-slides-container {
+  display: flex;
+  transition: transform 1.2s ease-in-out;
+}
+
+.highlights-single-slide {
+  min-width: 100%;
+  display: flex;
+  gap: 30px;
+  justify-content: flex-start;
+  padding-right: 30px;
+}
+
+.highlights-feature-card {
+  flex: 0 0 calc(33.333% - 20px);
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Lift effect on hover */
-.room-card:hover {
+.highlights-feature-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
-/* --- Image Slider Wrapper --- */
-.room-image-wrapper {
-  width: 40%;
-  /* Thoda bada image area */
+.highlights-card-image {
+  width: 100%;
+  height: 200px;
   position: relative;
-  min-height: 280px;
-  background-color: #f3f4f6;
   overflow: hidden;
 }
 
-/* Images are stacked on top of each other */
-.room-image {
+.highlights-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.highlights-feature-card:hover .highlights-card-image img {
+  transform: scale(1.05);
+}
+
+.highlights-card-text {
+  padding: 25px;
+}
+
+.highlights-card-text h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.highlights-card-text p {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.highlights-pagination-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.highlights-pagination-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(100, 116, 139, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.highlights-pagination-dot.active {
+  background: #FFD700;
+  transform: scale(1.2);
+}
+
+/* Rooms Carousel */
+.rooms-carousel-showcase {
+  margin: 40px 0;
+  width: 100%;
+  overflow: visible;
+}
+
+.rooms-main-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rooms-emoji-icon {
+  font-size: 36px;
+  color: #FFD700;
+}
+
+.rooms-carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #f8fafc;
+  padding: 30px;
+  /* Add more padding for better scroll experience */
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.rooms-slides-container {
+  display: flex;
+  transition: transform 1.2s ease-in-out;
+}
+
+.rooms-single-slide {
+  min-width: 100%;
+  display: flex;
+  gap: 25px;
+  justify-content: flex-start;
+  padding-right: 30px;
+}
+
+.rooms-pagination-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.rooms-pagination-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(100, 116, 139, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.rooms-pagination-dot.active {
+  background: #FFD700;
+  transform: scale(1.2);
+}
+
+/* Accommodation Cards */
+.accommodation-card-layout {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 calc(33.333% - 17px);
+  min-width: 280px;
+}
+
+.accommodation-card-layout:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.accommodation-gallery-wrapper {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.accommodation-gallery-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -201,322 +324,132 @@ body {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  /* Chupa hua */
-  transition: opacity 1s ease-in-out;
-  /* Smooth Fade Effect */
-  z-index: 1;
+  transition: opacity 0.8s ease-in-out;
 }
 
-/* Jo image active hai wo dikhegi */
-.room-image.active {
+.accommodation-gallery-image.active {
   opacity: 1;
-  z-index: 2;
-  transform: scale(1.05);
-  /* Slight zoom effect for attraction */
-  transition: opacity 1s ease-in-out, transform 6s ease;
 }
 
-.gallery-badge {
+.gallery-navigation-dots {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  background: rgba(0, 0, 0, 0.6);
-  /* Dark translucent background */
-  backdrop-filter: blur(4px);
-  color: #fff;
-  padding: 6px 12px;
-  border-radius: 30px;
-  font-size: 11px;
-  font-weight: 600;
-  z-index: 5;
-  /* Image ke upar */
-  letter-spacing: 0.5px;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  align-items: center;
-  gap: 5px;
+  gap: 6px;
+  z-index: 3;
 }
 
-/* --- Details Section --- */
-.room-details {
-  width: 60%;
-  padding: 30px;
+.navigation-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.navigation-dot.active {
+  background: #FFD700;
+  transform: scale(1.3);
+}
+
+.accommodation-info-section {
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  flex-grow: 1;
 }
 
-.room-title {
-  font-size: 26px;
-  font-weight: 800;
-  color: #1a1a1a;
-  margin-bottom: 5px;
-  letter-spacing: -0.5px;
+.accommodation-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 6px;
+  line-height: 1.3;
 }
 
-.room-subtitle {
-  font-size: 14px;
-  color: #666;
-  font-weight: 500;
+.accommodation-description {
+  font-size: 13px;
+  color: #64748b;
   margin-bottom: 15px;
+  line-height: 1.4;
 }
 
-/* Icons Row */
-.room-icons {
+.accommodation-amenities-list {
   display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-bottom: 15px;
-  color: #444;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
 }
 
-.room-icons span {
+.amenity-badge {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.reservation-button {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  background: #f5f7fa;
-  border-radius: 50%;
-  font-size: 16px;
-  transition: background 0.2s;
-}
-
-.room-icons span:hover {
-  background: #e0e7ff;
-  color: #2563eb;
-}
-
-.view-amenities {
-  font-size: 13px;
-  color: #2563eb;
-  font-weight: 600;
-  text-decoration: none;
-  border-bottom: 1px dashed #2563eb;
-  margin-left: auto;
-  /* Push to right */
-}
-
-.room-description {
-  font-size: 15px;
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  /* Limit to 3 lines */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.availability-tag {
-  display: inline-flex;
-  align-items: center;
-  background: #ecfdf5;
-  /* Light Green */
-  color: #059669;
-  /* Dark Green */
-  font-size: 12px;
-  font-weight: 700;
-  padding: 6px 12px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-  width: fit-content;
-  border: 1px solid #d1fae5;
-}
-
-/* --- Rate Plans --- */
-.rate-plans-container {
-  border-top: 1px solid #f0f0f0;
-  padding-top: 20px;
+  gap: 6px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
   margin-top: auto;
 }
 
-.plan-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 15px;
-  border-radius: 8px;
-  transition: background 0.2s;
-  border: 1px solid transparent;
-}
-
-.plan-row:hover {
-  background: #f8fafc;
-  border-color: #e2e8f0;
-}
-
-.plan-name {
-  font-weight: 700;
-  font-size: 16px;
-  color: #1e293b;
-  margin-bottom: 2px;
-}
-
-.plan-desc {
-  font-size: 11px;
-  color: #94a3b8;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-/* Attractive Button */
-.book-btn {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 24px;
-  font-weight: 600;
-  font-size: 15px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-  transition: all 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 100px;
-}
-
-.book-btn:hover {
+.reservation-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
 }
 
-.book-btn:active {
-  transform: translateY(0);
+.reservation-button .arrow {
+  transition: transform 0.3s ease;
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .room-card {
-    flex-direction: column;
-  }
-
-  .room-image-wrapper {
-    width: 100%;
-    height: 250px;
-  }
-
-  .room-details {
-    width: 100%;
-    padding: 20px;
-  }
+.reservation-button:hover .arrow {
+  transform: translateX(3px);
 }
 
-/* =========================================
-   8. RESPONSIVE ADJUSTMENTS
-   ========================================= */
-
-@media (max-width: 768px) {
-  .hotel-container {
-    padding: 20px 15px;
-  }
-
-  .hotel-card {
-    padding: 20px 0;
-  }
-
-  .hotel-name {
-    font-size: 36px;
-  }
-
-  .contact-row {
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .amenities {
-    gap: 12px;
-  }
-
-  .amenity-card {
-    width: 100%;
-    padding: 14px 18px;
-  }
-
-  .about-title {
-    font-size: 28px;
-  }
-
-  /* Room Card Mobile Styles */
-  .room-card {
-    flex-direction: column;
-    /* Stack image on top of details */
-  }
-
-  .room-image-wrapper {
-    width: 100%;
-    height: 200px;
-    /* Fixed height for mobile */
-    min-height: auto;
-  }
-
-  .room-details {
-    width: 100%;
-    padding: 20px;
-  }
-
-  .plan-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-
-  .book-btn {
-    width: 100%;
-    /* Full width button on mobile */
-    flex-direction: row;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hotel-name {
-    font-size: 30px;
-  }
-
-  .hotel-badge {
-    font-size: 13px;
-    padding: 7px 16px;
-  }
-
-  .amenity-text {
-    font-size: 14px;
-  }
-}
-
-/* --- House Rules Section --- */
+/* House Rules Section */
 .house-rules-section {
-  margin-top: 40px;
+  margin: 40px 0;
+  width: 100%;
+  overflow: visible;
 }
 
 .policy-card {
-  background: #ffffff;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 20px 0;
+  background: #f8fafc;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
 }
 
-/* Header ab clickable hoga */
 .policy-header {
+  padding: 20px;
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0;
-  /* Margin hataya taaki band hone par gap na dikhe */
-  cursor: pointer;
-  /* Hand icon aayega hover karne par */
-  padding: 10px 0;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.3s ease;
 }
 
 .policy-header:hover {
-  opacity: 0.7;
-  /* Hover effect */
+  background: #f1f5f9;
 }
 
 .policy-title-wrapper {
@@ -526,66 +459,192 @@ body {
 }
 
 .check-icon {
-  font-size: 18px;
-  color: #000;
+  color: #10b981;
   font-weight: bold;
+  font-size: 16px;
 }
 
 .policy-name {
   font-size: 18px;
   font-weight: 600;
-  color: #000;
+  color: #1e293b;
+  margin: 0;
 }
 
-/* Arrow styling aur animation */
 .policy-arrow {
-  font-size: 18px;
-  color: #2563eb;
+  font-size: 14px;
+  color: #64748b;
   transition: transform 0.3s ease;
-  /* Smooth ghumne ke liye */
-  display: inline-block;
 }
 
-/* Jab box khula ho to arrow ulta ho jayega */
 .policy-arrow.open {
   transform: rotate(180deg);
 }
 
 .policy-text {
-  font-size: 15px;
-  color: #333;
+  padding: 0 20px 20px 20px;
+  color: #475569;
   line-height: 1.6;
-  padding-left: 30px;
-  margin-top: 10px;
-  /* Animation for sliding down */
-  animation: fadeIn 0.3s ease-in-out;
+  margin: 0;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
+/* Location Section */
+.location-section {
+  margin: 40px 0;
+  width: 100%;
+  overflow: visible;
+}
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
+.map-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hotel-container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  .highlights-carousel-wrapper {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  .rooms-carousel-wrapper {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  .highlights-single-slide {
+    gap: 20px;
+  }
+  
+  .highlights-feature-card {
+    flex: 0 0 calc(50% - 15px);
+  }
+  
+  .rooms-single-slide .accommodation-card-layout {
+    flex: 0 0 calc(50% - 15px);
   }
 }
 
 @media (max-width: 768px) {
-  .policy-text {
-    padding-left: 0;
+  .hotel-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .hotel-card {
+    padding: 30px 20px;
+  }
+  
+  .hotel-name {
+    font-size: 28px;
+  }
+  
+  .about-description {
+    font-size: 14px;
+    line-height: 1.5;
+    /* Remove any mobile padding that might cause issues */
+    padding: 0;
+    width: 100%;
+  }
+  
+  .highlights-carousel-wrapper {
+    padding: 20px;
+  }
+  
+  .rooms-carousel-wrapper {
+    padding: 20px;
+  }
+  
+  .highlights-single-slide {
+    flex-direction: column;
+    gap: 25px;
+    padding-right: 0;
+  }
+  
+  .highlights-feature-card {
+    flex: none;
+    max-width: none;
+  }
+  
+  .rooms-single-slide {
+    flex-direction: column;
+    gap: 25px;
+    padding-right: 0;
+  }
+  
+  .rooms-single-slide .accommodation-card-layout {
+    flex: none;
+    max-width: none;
+  }
+  
+  .accommodation-gallery-wrapper {
+    height: 180px;
+  }
+  
+  .accommodation-info-section {
+    padding: 18px;
   }
 }
 
-/* CSS for Location Map */
-.location-section {
-  margin-top: 40px;
+@media (max-width: 480px) {
+  .hotel-container {
+    padding: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .hotel-card {
+    padding: 20px 15px;
+  }
+  
+  .hotel-name {
+    font-size: 24px;
+  }
+  
+  .about-description {
+    font-size: 14px;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .highlights-carousel-wrapper {
+    padding: 15px;
+  }
+  
+  .rooms-carousel-wrapper {
+    padding: 15px;
+  }
+  
+  .highlights-card-text {
+    padding: 20px;
+  }
+  
+  .highlights-card-text h3 {
+    font-size: 16px;
+  }
+  
+  .accommodation-heading {
+    font-size: 16px;
+  }
+  
+  .contact-item {
+    font-size: 14px;
+  }
 }
 
-.map-container {
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+/* Additional fix for horizontal scroll */
+body {
+  overflow-x: auto;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  overflow-x: auto;
 }

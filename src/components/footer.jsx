@@ -84,7 +84,7 @@ export default function Footer(){
                    </div>
                    <div className="contact-detail-item">
                      <i className="fa-solid fa-phone"></i>
-                     <span>+13602892040 ,+13602892040 </span>
+                     <span>+13602892040, +13602892040 </span>
                    </div>
                    <div className="contact-detail-item">
                      <i className="fa-solid fa-envelope"></i>

@@ -5,20 +5,20 @@
   box-sizing: border-box;
 }
 
-.contact-main-wrapper {
+.asi-main-wrapper {
   width: 100%;
   overflow-x: hidden;
   position: relative;
 }
 
-.contact-container {
+.asi-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
 }
 
 /* Hero Section - Reduced Height */
-.contact-hero-banner {
+.asi-hero-banner {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,7 +35,7 @@
   position: relative;
 }
 
-.contact-hero-overlay {
+.asi-hero-overlay {
   position: absolute;
   top: 10px;
   left: 0;
@@ -45,7 +45,7 @@
   border-radius: 6px;
 }
 
-.contact-hero-content {
+.asi-hero-content {
   position: relative;
   z-index: 1;
   text-align: center;
@@ -53,14 +53,14 @@
   padding: 10px;
 }
 
-.contact-hero-welcome {
+.asi-hero-welcome {
   font-size: clamp(10px, 2vw, 12px);
   letter-spacing: 0.5px;
   margin-bottom: 10px;
   font-weight: 500;
 }
 
-.contact-hero-title {
+.asi-hero-title {
   font-size: clamp(1.5rem, 4vw, 2.2rem);
   font-weight: 600;
   line-height: 1.2;
@@ -68,7 +68,7 @@
   max-width: 400px;
 }
 
-.contact-hero-btn {
+.asi-hero-btn {
   background-color: #4169E1;
   color: white;
   padding: clamp(8px, 2vw, 10px) clamp(20px, 4vw, 25px);
@@ -81,18 +81,18 @@
   transition: background-color 0.3s;
 }
 
-.contact-hero-btn:hover {
+.asi-hero-btn:hover {
   background-color: #0a2167;
 }
 
 /* Royal Pattern Background */
-.contact-bg-pattern {
+.asi-bg-pattern {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
+  background:
     radial-gradient(circle at 20% 50%, rgba(106, 90, 205, 0.02) 0%, transparent 50%),
     radial-gradient(circle at 80% 80%, rgba(255, 111, 97, 0.02) 0%, transparent 50%);
   pointer-events: none;
@@ -100,13 +100,13 @@
 }
 
 /* Section Headers - Reduced Spacing */
-.contact-section-header {
+.asi-section-header {
   text-align: center;
   margin-bottom: 25px;
   padding: 0 10px;
 }
 
-.contact-section-badge {
+.asi-section-badge {
   display: inline-block;
   padding: 6px 16px;
   background: linear-gradient(135deg, #667eea, #764ba2);
@@ -120,7 +120,7 @@
   box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
 }
 
-.contact-section-title {
+.asi-section-title {
   font-size: clamp(1.5rem, 4vw, 2.2rem);
   font-weight: 700;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #FF6F61 100%);
@@ -132,7 +132,7 @@
   line-height: 1.3;
 }
 
-.contact-section-subtitle {
+.asi-section-subtitle {
   font-size: clamp(0.9rem, 2.5vw, 1rem);
   color: #666;
   line-height: 1.5;
@@ -141,20 +141,20 @@
 }
 
 /* Why Contact Section - Reduced Padding */
-.contact-intro-section {
+.asi-intro-section {
   padding: 30px 15px;
   margin-top: 20px;
 }
 
 /* Contact Form Section - Compact */
-.contact-form-wrapper {
+.asi-form-wrapper {
   min-height: auto;
   padding: 30px 12px;
   font-family: 'Georgia', serif;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
-.contact-form-title {
+.asi-form-title {
   text-align: center;
   font-size: clamp(1.5rem, 4vw, 2.2rem);
   color: #4169E1;
@@ -164,7 +164,7 @@
   text-transform: uppercase;
 }
 
-.contact-form-box {
+.asi-form-box {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-radius: 12px;
@@ -174,19 +174,19 @@
   margin: 0 auto;
 }
 
-.contact-form {
+.asi-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.contact-form-group {
+.asi-form-group {
   display: grid;
   grid-template-columns: 1fr;
   gap: 8px;
 }
 
-.contact-form-label {
+.asi-form-label {
   font-size: clamp(0.9rem, 2.5vw, 1rem);
   color: #4169E1;
   font-weight: 500;
@@ -194,18 +194,17 @@
   margin-bottom: 5px;
 }
 
-.contact-required {
+.asi-required {
   color: #4169E1;
 }
 
-.contact-form-input,
-.contact-country-select,
-.contact-form-textarea {
+.asi-form-input,
+.asi-country-select,
+.asi-form-textarea {
   width: 100%;
   padding: clamp(10px, 2vw, 12px) clamp(12px, 3vw, 15px);
   font-size: clamp(0.85rem, 2vw, 1rem);
   border: 2px solid rgba(200, 200, 200, 0.5);
-  border-radius: 6px;
   background: #ffffff;
   color: #333;
   outline: none;
@@ -213,45 +212,206 @@
   transition: all 0.3s ease;
 }
 
-.contact-form-input:focus,
-.contact-country-select:focus,
-.contact-form-textarea:focus {
-  border-color: #4169E1;
+.asi-form-input:focus,
+.asi-country-select:focus,
+.asi-form-textarea:focus {
   box-shadow: 0 2px 8px rgba(65, 105, 225, 0.15);
 }
 
-.contact-phone-group {
+.asi-phone-group {
   display: flex;
   gap: 8px;
   flex-direction: column;
 }
 
-.contact-country-select {
+.asi-country-select {
   width: 100%;
   cursor: pointer;
 }
 
-.contact-phone-input {
+.asi-phone-input {
   width: 100%;
 }
 
-.contact-country-select {
+.asi-country-select {
   cursor: pointer;
   appearance: none;
-  background-image: linear-gradient(45deg, transparent 50%, #4169E1 50%), 
-                    linear-gradient(135deg, #4169E1 50%, transparent 50%);
-  background-position: calc(100% - 15px) calc(1em + 2px), 
-                       calc(100% - 10px) calc(1em + 2px);
+  background-image: linear-gradient(45deg, transparent 50%, #4169E1 50%),
+    linear-gradient(135deg, #4169E1 50%, transparent 50%);
+  background-position: calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 10px) calc(1em + 2px);
   background-size: 5px 5px, 5px 5px;
   background-repeat: no-repeat;
 }
 
-.contact-form-textarea {
+/* Date Fields - Match Hotel Dropdown Style */
+.asi-date-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.asi-date-field {
+  flex: 1;
+  min-width: 0;
+}
+
+.asi-date-field .asi-form-label {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  color: #4169E1;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Make DatePicker input match other form inputs exactly */
+.asi-datepicker-input {
+  width: 100% !important;
+  padding: clamp(10px, 2vw, 12px) clamp(12px, 3vw, 15px) !important;
+  font-size: clamp(0.85rem, 2vw, 1rem) !important;
+  border: 2px solid rgba(200, 200, 200, 0.5) !important;
+  border-radius: 0 !important;
+  background: #ffffff !important;
+  color: #333 !important;
+  outline: none !important;
+  font-family: 'Arial', sans-serif !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  height: auto !important;
+  box-shadow: none !important;
+}
+
+.asi-datepicker-input:hover {
+  border-color: rgba(200, 200, 200, 0.8) !important;
+}
+
+.asi-datepicker-input:focus {
+  border-color: #4169E1 !important;
+  box-shadow: 0 2px 8px rgba(65, 105, 225, 0.15) !important;
+}
+
+.asi-datepicker-input::placeholder {
+  color: #999 !important;
+  font-size: clamp(0.85rem, 2vw, 1rem) !important;
+}
+
+/* Date Picker Wrapper */
+.asi-date-picker-wrapper {
+  width: 100%;
+}
+
+/* Calendar popup styling - Blue theme */
+.asi-blue-popper .react-datepicker {
+  border: 2px solid #4169E1 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 25px rgba(65, 105, 225, 0.3), 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
+  font-family: 'Arial', sans-serif !important;
+  padding: 16px !important;
+  margin-top: 8px !important;
+}
+
+.asi-blue-popper .react-datepicker__header {
+  background: linear-gradient(135deg, #4169E1 0%, #0a2167 100%) !important;
+  border-radius: 10px 10px 0 0 !important;
+  border-bottom: 2px solid #4169E1 !important;
+  margin: -16px -16px 16px -16px !important;
+  padding: 20px !important;
+}
+
+.asi-blue-popper .react-datepicker__current-month,
+.asi-blue-popper .react-datepicker__navigation {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+}
+
+.asi-blue-popper .react-datepicker__navigation:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 50% !important;
+}
+
+.asi-blue-popper .react-datepicker__day-names,
+.asi-blue-popper .react-datepicker__day-name {
+  color: #4169E1 !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+}
+
+.asi-blue-popper .react-datepicker__day {
+  color: #333 !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+  font-weight: 500 !important;
+}
+
+.asi-blue-popper .react-datepicker__day--selected,
+.asi-blue-popper .react-datepicker__day--in-selecting-range,
+.asi-blue-popper .react-datepicker__day--in-range {
+  background: linear-gradient(135deg, #4169E1 0%, #0a2167 100%) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(65, 105, 225, 0.4) !important;
+  transform: scale(1.05) !important;
+}
+
+.asi-blue-popper .react-datepicker__day--today {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%) !important;
+  color: #4169E1 !important;
+  font-weight: 600 !important;
+  border: 2px solid #4169E1 !important;
+  border-radius: 8px !important;
+}
+
+.asi-blue-popper .react-datepicker__day:hover {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%) !important;
+  transform: scale(1.1) !important;
+  color: #4169E1 !important;
+  box-shadow: 0 4px 15px rgba(65, 105, 225, 0.3) !important;
+  border-radius: 8px !important;
+}
+
+.asi-blue-popper .react-datepicker__day--keyboard-selected {
+  background: linear-gradient(135deg, #4169E1 0%, #0a2167 100%) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+
+.asi-blue-popper .react-datepicker__day--disabled {
+  color: #ccc !important;
+  background: transparent !important;
+}
+
+.asi-blue-popper .react-datepicker__day--disabled:hover {
+  background: transparent !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 768px) {
+  .asi-blue-popper .react-datepicker {
+    font-size: 16px !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 auto !important;
+    max-width: 320px !important;
+    padding: 12px !important;
+  }
+  
+  .asi-blue-popper .react-datepicker__header {
+    padding: 16px !important;
+    margin: -12px -12px 12px -12px !important;
+  }
+}
+
+.asi-form-textarea {
   resize: vertical;
   min-height: 80px;
 }
 
-.contact-submit-btn {
+.asi-submit-btn {
   width: 100%;
   padding: clamp(12px, 3vw, 15px);
   font-size: clamp(0.9rem, 2.5vw, 1rem);
@@ -267,13 +427,13 @@
   box-shadow: 0 4px 12px rgba(65, 105, 225, 0.3);
 }
 
-.contact-submit-btn:hover {
+.asi-submit-btn:hover {
   background: linear-gradient(135deg, #0a2167 0%, #4169E1 100%);
   transform: translateY(-1px);
   box-shadow: 0 6px 16px rgba(65, 105, 225, 0.4);
 }
 
-.contact-status-msg {
+.asi-status-msg {
   margin-top: 12px;
   padding: 10px 15px;
   border-radius: 6px;
@@ -282,41 +442,42 @@
   font-size: clamp(0.8rem, 2vw, 0.9rem);
 }
 
-.contact-status-msg.contact-success {
+.asi-status-msg.asi-success {
   background: linear-gradient(135deg, #43e97b, #38f9d7);
   color: white;
 }
 
-.contact-status-msg.contact-error {
+.asi-status-msg.asi-error {
   background: linear-gradient(135deg, #f093fb, #f5576c);
   color: white;
 }
 
-/* FAQ Section - Compact */
-.contact-faq-section {
+/* FAQ Section - Compact with Fixed Border Issue */
+.asi-faq-section {
   padding: 40px 15px;
   background: white;
 }
 
-.contact-faq-container {
+.asi-faq-container {
   max-width: 700px;
   margin: 0 auto;
 }
 
-.contact-faq-item {
+.asi-faq-item {
   background: white;
-  border-radius: 8px;
   margin-bottom: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 0;
 }
 
-.contact-faq-item:hover {
+.asi-faq-item:hover {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
 }
 
-.contact-faq-question {
+.asi-faq-question {
   padding: clamp(15px, 3vw, 18px) clamp(18px, 4vw, 22px);
   cursor: pointer;
   display: flex;
@@ -324,13 +485,14 @@
   align-items: center;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   transition: all 0.3s ease;
+  border: none;
 }
 
-.contact-faq-question:hover {
+.asi-faq-question:hover {
   background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
 }
 
-.contact-faq-question h3 {
+.asi-faq-question h3 {
   font-size: clamp(0.95rem, 2.5vw, 1.1rem);
   font-weight: 600;
   color: #333;
@@ -339,30 +501,33 @@
   line-height: 1.4;
 }
 
-.contact-faq-icon {
+.asi-faq-icon {
   color: #4169E1;
   font-size: clamp(0.9rem, 2vw, 1rem);
   transition: transform 0.3s ease;
   margin-left: 10px;
+  flex-shrink: 0;
 }
 
-.contact-faq-icon.contact-faq-open {
+.asi-faq-icon.asi-faq-open {
   transform: rotate(180deg);
 }
 
-.contact-faq-answer {
+.asi-faq-answer {
   max-height: 0;
   overflow: hidden;
   transition: all 0.3s ease;
   background: white;
+  border-top: none;
 }
 
-.contact-faq-answer.contact-faq-open {
+.asi-faq-answer.asi-faq-open {
   max-height: 150px;
   padding: clamp(15px, 3vw, 18px) clamp(18px, 4vw, 22px);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.contact-faq-answer p {
+.asi-faq-answer p {
   margin: 0;
   color: #666;
   line-height: 1.5;
@@ -370,12 +535,12 @@
 }
 
 /* Map Section - Compact */
-.contact-map-section {
+.asi-map-section {
   padding: 40px 15px;
   background: #f8f9fa;
 }
 
-.contact-map-wrapper {
+.asi-map-wrapper {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
@@ -383,13 +548,13 @@
   margin-bottom: 25px;
 }
 
-.contact-map-wrapper iframe {
+.asi-map-wrapper iframe {
   width: 100%;
   height: 100%;
   border: none;
 }
 
-.contact-location-details {
+.asi-location-details {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -397,28 +562,29 @@
   margin: 0 auto;
 }
 
-.contact-detail-item {
+.asi-detail-item {
   display: flex;
   align-items: flex-start;
   gap: 10px;
   padding: clamp(12px, 3vw, 15px);
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  background: white;
 }
 
-.contact-detail-item i {
+.asi-detail-item i {
   color: #4169E1;
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   margin-top: 2px;
   flex-shrink: 0;
 }
 
-.contact-detail-item span {
+.asi-detail-item span {
   font-size: clamp(0.85rem, 2vw, 0.95rem);
   line-height: 1.4;
 }
 
-.contact-directions-btn {
+.asi-directions-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -436,7 +602,7 @@
   text-align: center;
 }
 
-.contact-directions-btn:hover {
+.asi-directions-btn:hover {
   background: #0a2167;
   transform: translateY(-1px);
   color: white;
@@ -445,110 +611,120 @@
 
 /* Enhanced Mobile Responsiveness */
 @media (min-width: 768px) {
-  .contact-phone-group {
+  .asi-phone-group {
     flex-direction: row;
     gap: 10px;
   }
-  
-  .contact-country-select {
+
+  .asi-country-select {
     width: 150px;
     flex-shrink: 0;
   }
-  
-  .contact-phone-input {
+
+  .asi-phone-input {
     flex: 1;
   }
-  
-  .contact-form-group {
+
+  .asi-form-group {
     grid-template-columns: 140px 1fr;
     gap: 12px;
     align-items: flex-start;
   }
-  
-  .contact-form-label {
+
+  .asi-form-label {
     padding-top: 12px;
     margin-bottom: 0;
   }
-  
-  .contact-directions-btn {
+
+  .asi-directions-btn {
     width: auto;
+  }
+
+  .asi-date-group {
+    gap: 20px;
   }
 }
 
 @media (max-width: 480px) {
-  .contact-container {
+  .asi-container {
     padding: 0 10px;
   }
-  
-  .contact-hero-banner {
+
+  .asi-hero-banner {
     height: 35vh;
     min-height: 200px;
     margin: 2px;
   }
-  
-  .contact-hero-content {
+
+  .asi-hero-content {
     padding: 8px;
   }
-  
-  .contact-form-box {
+
+  .asi-form-box {
     padding: 15px;
   }
-  
-  .contact-form {
+
+  .asi-form {
     gap: 12px;
   }
-  
-  .contact-form-textarea {
+
+  .asi-form-textarea {
     min-height: 70px;
   }
-  
-  .contact-faq-question {
+
+  .asi-faq-question {
     padding: 12px 15px;
   }
-  
-  .contact-faq-answer.contact-faq-open {
+
+  .asi-faq-answer.asi-faq-open {
     padding: 12px 15px;
   }
-  
-  .contact-detail-item {
+
+  .asi-detail-item {
     padding: 10px;
+  }
+
+  .asi-date-group {
+    flex-direction: column;
+    gap: 12px;
   }
 }
 
 @media (max-width: 360px) {
-  .contact-hero-banner {
+  .asi-hero-banner {
     height: 30vh;
     min-height: 180px;
   }
-  
-  .contact-form-box {
+
+  .asi-form-box {
     padding: 12px;
   }
-  
-  .contact-form {
+
+  .asi-form {
     gap: 10px;
   }
-  
-  .contact-map-wrapper {
+
+  .asi-map-wrapper {
     height: 200px;
   }
 }
 
 /* Improved Focus States for Accessibility */
-.contact-form-input:focus,
-.contact-country-select:focus,
-.contact-form-textarea:focus,
-.contact-submit-btn:focus,
-.contact-directions-btn:focus {
+.asi-form-input:focus,
+.asi-country-select:focus,
+.asi-form-textarea:focus,
+.asi-datepicker-input:focus,
+.asi-submit-btn:focus,
+.asi-directions-btn:focus {
   outline: 2px solid #4169E1;
   outline-offset: 2px;
 }
 
 /* Better Button States */
-.contact-submit-btn:active {
+.asi-submit-btn:active {
   transform: translateY(0);
 }
 
-.contact-directions-btn:active {
+.asi-directions-btn:active {
   transform: translateY(0);
 }
