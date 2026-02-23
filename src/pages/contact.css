@@ -201,7 +201,7 @@
 .asi-form-input,
 .asi-country-select,
 .asi-form-textarea {
-  width: 100%;
+  width: 500px;
   padding: clamp(10px, 2vw, 12px) clamp(12px, 3vw, 15px);
   font-size: clamp(0.85rem, 2vw, 1rem);
   border: 2px solid rgba(200, 200, 200, 0.5);
@@ -246,12 +246,14 @@
 
 /* Date Fields - Match Hotel Dropdown Style */
 .asi-date-group {
+  
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
 }
 
 .asi-date-field {
+  width: 100%;
   flex: 1;
   min-width: 0;
 }
@@ -412,7 +414,8 @@
 }
 
 .asi-submit-btn {
-  width: 100%;
+  width: 620px;
+  max-width: 620px;
   padding: clamp(12px, 3vw, 15px);
   font-size: clamp(0.9rem, 2.5vw, 1rem);
   font-weight: 600;
@@ -425,6 +428,9 @@
   text-transform: uppercase;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(65, 105, 225, 0.3);
+  margin: 20px auto 30 auto;
+  display: block;
+  margin-left: 20px;
 }
 
 .asi-submit-btn:hover {
@@ -727,4 +733,11 @@
 
 .asi-directions-btn:active {
   transform: translateY(0);
+}
+
+/* Mobile responsive */
+@media (max-width: 520px) {
+  .asi-submit-btn {
+    width: 100%;
+  }
 }

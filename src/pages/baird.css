@@ -1,272 +1,359 @@
-/* 1. Global Reset & Base Settings */
-* {
-  margin: 0;
-  padding: 0;
+/* Base Styles */
+.baird-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.baird-page-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  width: 100%;
   box-sizing: border-box;
 }
 
-html,
-body {
-  width: 100%;
-  min-height: 100vh;
-  background-color: #ffffff;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-}
-
-/* 2. Main Layout Containers */
-.hotel-container {
-  width: 100%;
-  padding: 40px 20px;
-  background-color: #ffffff;
-  display: flex;
-  justify-content: center;
-}
-
-.hotel-card {
-  background: #ffffff;
-  width: 100%;
-  max-width: 1200px;
-  padding: 50px;
-  border: none;
-  box-shadow: none;
-}
-
-/* 3. Typography & Badges */
-.hotel-badge {
-  display: inline-block;
-  background: linear-gradient(96deg, #6499fb, #065af3);
-  color: #ffffff;
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 20px;
-  text-transform: none;
-}
-
-.hotel-name {
+.baird-page-name {
   font-size: 48px;
   font-weight: 700;
   color: #000000;
   margin: 0 0 30px 0;
   line-height: 1.2;
+  text-align: left;
+  margin-left: 220px;
 }
 
-/* 4. Contact Information */
-.contact-info {
+.baird-page-contact-info {
   display: flex;
   align-items: center;
-  padding: 12px 20px;
-  background: linear-gradient(135deg, #ffffff, #ffffff);
-  border-radius: 0 0 0 25px;
-  box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px 30px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   flex-shrink: 0;
   margin-bottom: 30px;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.contact-row {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  margin-top: 10px;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 16px;
-  color: #000000;
-  line-height: 1.6;
-}
-
-.contact-item .icon {
-  font-size: 18px;
-  flex-shrink: 0;
-}
-
-.contact-item a {
-  color: #000000;
-  text-decoration: none;
-  font-weight: 400;
-}
-
-.contact-item a:hover {
-  text-decoration: underline;
-}
-
-/* 5. Legacy Amenities (Optional) */
-.amenities {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 25px;
-}
-
-.amenity-card {
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 16px 20px;
+.baird-page-contact-item {
   display: flex;
   align-items: center;
   gap: 12px;
-  transition: all 0.2s ease;
-}
-
-.amenity-card:hover {
-  border-color: #000000;
-  background: #ffffff;
-}
-
-.amenity-icon {
-  font-size: 24px;
+  font-size: 16px;
   color: #000000;
-}
-
-.amenity-text {
-  font-size: 15px;
-  color: #000000;
-  font-weight: 400;
-  white-space: nowrap;
-}
-
-/* =========================================
-   NEW AMENITIES SECTION STYLES (FROM PHOTO)
-   ========================================= */
-
-/* Top Row Cards (Pills) */
-.amenities-top-row {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
-  margin-top: 20px;
-}
-
-.amenity-pill {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 12px 20px;
-  min-width: 160px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  transition: all 0.2s ease;
-  cursor: default;
-}
-
-.amenity-pill:hover {
-  border-color: #2563eb;
-  transform: translateY(-2px);
-}
-
-/* Detailed List Grid */
-.amenities-list-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px 30px;
-  margin-bottom: 30px;
-}
-
-.amenity-list-item {
-  font-size: 15px;
-  color: #374151;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.bullet-point {
-  font-size: 18px;
-  line-height: 0;
-  margin-bottom: 2px;
-}
-
-/* View All Button */
-.amenities-button-wrapper {
-  display: flex;
+  line-height: 1.5;
+  width: 100%;
   justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 40px;
 }
 
-.view-all-btn {
-  background-color: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 10px 24px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  text-transform: lowercase;
-  box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-  transition: background 0.2s;
+.baird-page-contact-item .icon {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
 }
 
-.view-all-btn:hover {
-  background-color: #1d4ed8;
+.baird-page-contact-item a {
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-/* 6. Layout Elements & About */
-.divider {
+.baird-page-contact-item a:hover {
+  color: #3b82f6;
+  text-decoration: underline;
+}
+
+.baird-page-divider {
   border: none;
   height: 1px;
-  background: #e0e0e0;
+  background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
   margin: 40px 0;
 }
 
-.about-section {
-  background: #ffffff;
+/* About Section */
+.baird-page-about-section {
+  margin: 30px 0;
+  width: 100%;
+  overflow: visible;
 }
 
-.about-title {
+.baird-page-about-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 20px;
+  line-height: 1.3;
+  width: 100%;
+}
+
+.baird-page-about-description {
+  font-size: 16px;
+  color: #475569;
+  line-height: 1.6;
+  text-align: justify;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  display: block;
+  max-width: none;
+  text-overflow: clip;
+  margin: 0;
+  padding: 0;
+}
+
+/* Property Highlights Carousel */
+.baird-page-highlights-showcase {
+  margin: 40px 0;
+  width: 100%;
+  overflow: visible;
+}
+
+.baird-page-highlights-title {
   font-size: 32px;
   font-weight: 700;
   color: #000000;
-  margin-bottom: 24px;
-}
-
-.about-description {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #000000;
-  text-align: justify;
-  font-weight: 400;
-}
-
-/* =========================================
-   7. ROOMS SECTION STYLES
-   ========================================= */
-
-.room-card {
+  margin-bottom: 30px;
   display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.baird-page-highlights-emoji {
+  font-size: 36px;
+  color: #FFD700;
+}
+
+.baird-page-highlights-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #f8fafc;
+  padding: 30px 40px 60px 40px;
+  min-height: 400px;
+}
+
+.baird-page-highlights-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.baird-page-highlights-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+}
+
+.baird-page-highlights-slide.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+
+.baird-page-highlight-card {
   background: #ffffff;
-  border: 1px solid #f0f0f0;
   border-radius: 16px;
   overflow: hidden;
-  margin-bottom: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.room-card:hover {
+.baird-page-highlight-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
-.room-image-wrapper {
-  width: 40%;
+.baird-page-highlight-image {
+  width: 100%;
+  height: 200px;
   position: relative;
-  min-height: 280px;
-  background-color: #f3f4f6;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
-.room-image {
+.baird-page-highlight-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.baird-page-highlight-card:hover .baird-page-highlight-image img {
+  transform: scale(1.05);
+}
+
+.baird-page-highlight-text {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.baird-page-highlight-text h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.baird-page-highlight-text p {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.baird-page-highlights-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.baird-page-highlights-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(100, 116, 139, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.baird-page-highlights-dot.active {
+  background: #FFD700;
+  transform: scale(1.2);
+}
+
+/* Rooms Carousel */
+.baird-page-rooms-showcase {
+  margin: 40px 0;
+  width: 100%;
+  overflow: visible;
+}
+
+.baird-page-rooms-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.baird-page-rooms-emoji {
+  font-size: 36px;
+  color: #FFD700;
+}
+
+.baird-page-rooms-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #f8fafc;
+  padding: 30px 40px 60px 40px;
+  min-height: 500px;
+}
+
+.baird-page-rooms-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.baird-page-rooms-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+}
+
+.baird-page-rooms-slide.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+
+.baird-page-rooms-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.baird-page-rooms-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(100, 116, 139, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.baird-page-rooms-dot.active {
+  background: #FFD700;
+  transform: scale(1.2);
+}
+
+/* Accommodation Cards */
+.baird-page-room-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.baird-page-room-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.baird-page-room-gallery {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.baird-page-room-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -274,479 +361,410 @@ body {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
-  z-index: 1;
+  transition: opacity 0.8s ease-in-out;
 }
 
-.room-image.active {
+.baird-page-room-image.active {
   opacity: 1;
-  z-index: 2;
-  transform: scale(1.05);
-  transition: opacity 1s ease-in-out, transform 6s ease;
 }
 
-.gallery-badge {
+.baird-page-gallery-dots {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  color: #fff;
-  padding: 6px 12px;
-  border-radius: 30px;
-  font-size: 11px;
-  font-weight: 600;
-  z-index: 5;
-  letter-spacing: 0.5px;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  align-items: center;
-  gap: 5px;
+  gap: 6px;
+  z-index: 3;
 }
 
-.room-details {
-  width: 60%;
-  padding: 30px;
+.baird-page-gallery-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.baird-page-gallery-dot.active {
+  background: #FFD700;
+  transform: scale(1.3);
+}
+
+.baird-page-room-info {
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  flex-grow: 1;
 }
 
-.room-title {
-  font-size: 26px;
-  font-weight: 800;
-  color: #1a1a1a;
-  margin-bottom: 5px;
-  letter-spacing: -0.5px;
+.baird-page-room-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 6px;
+  line-height: 1.3;
 }
 
-.room-subtitle {
-  font-size: 14px;
-  color: #666;
-  font-weight: 500;
+.baird-page-room-description {
+  font-size: 13px;
+  color: #64748b;
   margin-bottom: 15px;
+  line-height: 1.4;
 }
 
-.room-icons {
+.baird-page-amenities-list {
   display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-bottom: 15px;
-  color: #444;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
 }
 
-.room-icons span {
+.baird-page-amenity-badge {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.baird-page-book-button {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  background: #f5f7fa;
-  border-radius: 50%;
-  font-size: 16px;
-  transition: background 0.2s;
-}
-
-.room-icons span:hover {
-  background: #e0e7ff;
-  color: #2563eb;
-}
-
-.view-amenities {
-  font-size: 13px;
-  color: #2563eb;
-  font-weight: 600;
-  text-decoration: none;
-  border-bottom: 1px dashed #2563eb;
-  margin-left: auto;
-}
-
-.room-description {
-  font-size: 15px;
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.availability-tag {
-  display: inline-flex;
-  align-items: center;
-  background: #ecfdf5;
-  color: #059669;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 6px 12px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-  width: fit-content;
-  border: 1px solid #d1fae5;
-}
-
-.rate-plans-container {
-  border-top: 1px solid #f0f0f0;
-  padding-top: 20px;
+  gap: 6px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
   margin-top: auto;
 }
 
-.plan-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 15px;
-  border-radius: 8px;
-  transition: background 0.2s;
-  border: 1px solid transparent;
-}
-
-.plan-row:hover {
-  background: #f8fafc;
-  border-color: #e2e8f0;
-}
-
-.plan-name {
-  font-weight: 700;
-  font-size: 16px;
-  color: #1e293b;
-  margin-bottom: 2px;
-}
-
-.plan-desc {
-  font-size: 11px;
-  color: #94a3b8;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-.strikethrough {
-  text-decoration: line-through;
-  color: #9ca3af;
-  margin-left: 8px;
-  font-weight: normal;
-}
-
-.book-btn {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 24px;
-  font-weight: 600;
-  font-size: 15px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-  transition: all 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 100px;
-}
-
-.book-btn:hover {
+.baird-page-book-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
 }
 
-.book-btn:active {
-  transform: translateY(0);
+.baird-page-book-button .arrow {
+  transition: transform 0.3s ease;
 }
 
-/* --- House Rules Section --- */
-.house-rules-section {
-  margin-top: 40px;
+.baird-page-book-button:hover .arrow {
+  transform: translateX(3px);
 }
 
-.policy-card {
-  background: #ffffff;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 20px 0;
+/* House Rules Section */
+.baird-page-rules-section {
+  margin: 40px 0;
+  width: 100%;
+  overflow: visible;
 }
 
-.policy-header {
+.baird-page-policy-card {
+  background: #f8fafc;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.baird-page-policy-header {
+  padding: 20px;
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0;
-  cursor: pointer;
-  padding: 10px 0;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.3s ease;
 }
 
-.policy-header:hover {
-  opacity: 0.7;
+.baird-page-policy-header:hover {
+  background: #f1f5f9;
 }
 
-.policy-title-wrapper {
+.baird-page-policy-title-wrapper {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.check-icon {
-  font-size: 18px;
-  color: #000;
+.baird-page-check-icon {
+  color: #10b981;
   font-weight: bold;
+  font-size: 16px;
 }
 
-.policy-name {
+.baird-page-policy-name {
   font-size: 18px;
   font-weight: 600;
-  color: #000;
+  color: #1e293b;
+  margin: 0;
 }
 
-.policy-arrow {
-  font-size: 18px;
-  color: #2563eb;
+.baird-page-policy-arrow {
+  font-size: 14px;
+  color: #64748b;
   transition: transform 0.3s ease;
-  display: inline-block;
 }
 
-.policy-arrow.open {
+.baird-page-policy-arrow.open {
   transform: rotate(180deg);
 }
 
-.policy-text {
-  font-size: 15px;
-  color: #333;
+.baird-page-policy-text {
+  padding: 0 20px 20px 20px;
+  color: #475569;
   line-height: 1.6;
-  padding-left: 30px;
-  margin-top: 10px;
-  animation: fadeIn 0.3s ease-in-out;
+  margin: 0;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* CSS for Location Map */
-.location-section {
-  margin-top: 40px;
-}
-
-.map-container {
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* =========================================
-   9. AMENITIES MODAL (POPUP) STYLES
-   ========================================= */
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* Location Section */
+.baird-page-location-section {
+  margin: 40px 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  padding: 20px;
-  animation: fadeIn 0.3s ease;
+  overflow: visible;
 }
 
-.modal-content {
-  background: #ffffff;
-  width: 100%;
-  max-width: 600px;
+.baird-page-map-container {
   border-radius: 12px;
-  max-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  animation: slideUp 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-.modal-header {
-  padding: 15px;
-  display: flex;
-  justify-content: flex-end;
-  background: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.close-modal-btn {
-  background: #2563eb;
-  color: white;
-  border: none;
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  font-size: 18px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s;
-}
-
-.close-modal-btn:hover {
-  background: #1d4ed8;
-}
-
-.modal-body {
-  padding: 0 40px 40px 40px;
-  overflow-y: auto;
-}
-
-.modal-section {
-  margin-bottom: 30px;
-}
-
-.modal-section-title {
-  font-size: 28px;
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 20px;
-}
-
-.modal-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.modal-list-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 16px;
-  color: #333;
-  font-weight: 400;
-}
-
-.check-mark {
-  color: #000080;
-  /* Dark Blue checkmark */
-  font-weight: 800;
-  font-size: 18px;
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .baird-page-container {
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
-  to {
-    transform: translateY(0);
-    opacity: 1;
+  .baird-page-card {
+    padding: 35px;
+  }
+
+  .baird-page-name {
+    font-size: 42px;
+  }
+
+  .baird-page-highlights-wrapper {
+    padding: 25px 30px 55px 30px;
+    min-height: 380px;
+  }
+
+  .baird-page-rooms-wrapper {
+    padding: 25px 30px 55px 30px;
+    min-height: 480px;
+  }
+
+  .baird-page-highlights-slide {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .baird-page-rooms-slide {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
-
-/* =========================================
-   10. RESPONSIVE ADJUSTMENTS (ALL SECTIONS)
-   ========================================= */
 
 @media (max-width: 768px) {
-  .hotel-container {
-    padding: 20px 15px;
+  .baird-page-container {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
-  .hotel-card {
-    padding: 20px 0;
+  .baird-page-card {
+    padding: 25px 15px;
   }
 
-  .hotel-name {
-    font-size: 36px;
+  .baird-page-name {
+    font-size: 28px;
   }
 
-  .contact-row {
-    flex-direction: column;
-    gap: 14px;
+  .baird-page-about-title {
+    font-size: 22px;
   }
 
-  .room-card {
-    flex-direction: column;
+  .baird-page-about-description {
+    font-size: 14px;
   }
 
-  .room-image-wrapper {
-    width: 100%;
-    height: 250px;
+  .baird-page-highlights-title,
+  .baird-page-rooms-title {
+    font-size: 24px;
+  }
+
+  .baird-page-highlights-wrapper {
+    padding: 15px 10px 50px 10px;
     min-height: auto;
   }
 
-  .room-details {
-    width: 100%;
-    padding: 20px;
+  .baird-page-rooms-wrapper {
+    padding: 15px 10px 50px 10px;
+    min-height: auto;
   }
 
-  .plan-row {
-    flex-direction: column;
-    align-items: flex-start;
+  .baird-page-highlights-slide {
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
 
-  .book-btn {
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
-    gap: 8px;
+  .baird-page-rooms-slide {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .baird-page-room-gallery {
+    height: 160px;
+  }
+
+  .baird-page-highlight-image {
+    height: 160px;
+  }
+
+  .baird-page-highlight-text {
     padding: 12px;
   }
 
-  .policy-text {
-    padding-left: 0;
+  .baird-page-highlight-text h3 {
+    font-size: 13px;
+    margin-bottom: 6px;
   }
 
-  .amenities-list-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .baird-page-highlight-text p {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .baird-page-room-info {
+    padding: 12px;
+  }
+
+  .baird-page-room-heading {
+    font-size: 13px;
+  }
+
+  .baird-page-room-description {
+    font-size: 11px;
+  }
+
+  .baird-page-amenity-badge {
+    font-size: 9px;
+    padding: 2px 5px;
+  }
+
+  .baird-page-book-button {
+    padding: 8px 12px;
+    font-size: 11px;
   }
 }
 
 @media (max-width: 480px) {
-  .hotel-name {
-    font-size: 30px;
+  .baird-page-container {
+    padding: 12px;
   }
 
-  .hotel-badge {
-    font-size: 13px;
-    padding: 7px 16px;
+  .baird-page-card {
+    padding: 20px 12px;
   }
 
-  .amenity-text {
+  .baird-page-name {
+    font-size: 24px;
+    margin: 0 0 15px 0;
+  }
+
+  .baird-page-contact-info {
+    padding: 12px 15px;
+  }
+
+  .baird-page-contact-item {
+    font-size: 12px;
+  }
+
+  .baird-page-highlights-wrapper {
+    padding: 12px 8px 45px 8px;
+  }
+
+  .baird-page-rooms-wrapper {
+    padding: 12px 8px 45px 8px;
+  }
+
+  .baird-page-highlights-slide {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .baird-page-rooms-slide {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .baird-page-room-gallery {
+    height: 140px;
+  }
+
+  .baird-page-highlight-image {
+    height: 140px;
+  }
+
+  .baird-page-highlight-text {
+    padding: 10px;
+  }
+
+  .baird-page-highlight-text h3 {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  .baird-page-highlight-text p {
+    font-size: 10px;
+  }
+
+  .baird-page-room-info {
+    padding: 10px;
+  }
+
+  .baird-page-room-heading {
+    font-size: 12px;
+  }
+
+  .baird-page-room-description {
+    font-size: 10px;
+    margin-bottom: 8px;
+  }
+
+  .baird-page-amenities-list {
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  .baird-page-amenity-badge {
+    font-size: 8px;
+    padding: 2px 4px;
+  }
+
+  .baird-page-book-button {
+    padding: 7px 10px;
+    font-size: 10px;
+  }
+
+  .baird-page-policy-header {
+    padding: 12px;
+  }
+
+  .baird-page-policy-name {
     font-size: 14px;
   }
 
-  .amenities-list-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .amenities-top-row {
-    flex-direction: column;
-  }
-
-  .amenity-pill {
-    width: 100%;
-  }
-
-  /* Mobile Modal Adjustments */
-  .modal-content {
-    height: 100%;
-    max-height: 100%;
-    border-radius: 0;
-  }
-
-  .modal-body {
-    padding: 20px;
+  .baird-page-policy-text {
+    padding: 0 12px 12px 12px;
+    font-size: 12px;
   }
 }
