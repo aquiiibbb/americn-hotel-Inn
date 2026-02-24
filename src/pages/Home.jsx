@@ -43,7 +43,7 @@ export default function Home() {
       name: "American Star Inn - Munday",
       location: "Texas",
       link: "/munday",
-      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image: "https://prodimagesbucket.blob.core.windows.net/hotel-images/32698/7c4b8b9d-3c9c-48fe-a45d-1c6f2cf2a311",
       amenities: [
         { icon: <FaWifi />, name: "WiFi" },
         { icon: <FaCar />, name: "Parking" },
@@ -56,7 +56,7 @@ export default function Home() {
       name: "American Star Inn - Baird",
       location: "Texas",
       link: "/baird",
-      image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image: "https://prodimagesbucket.blob.core.windows.net/hotel-images/32285/36e0148d-0570-4ffc-b870-bf8af8d13129",
       amenities: [
         { icon: <FaSnowflake />, name: "AC" },
         { icon: <FaWifi />, name: "WiFi" },
@@ -69,7 +69,7 @@ export default function Home() {
       name: "American Star Inn - Abilene",
       location: "Texas",
       link: "/abilene",
-      image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image: "https://prodimagesbucket.blob.core.windows.net/hotel-images/32249/6bdf7323-3312-4327-b138-687f0fac1619",
       amenities: [
         { icon: <FaSnowflake />, name: "AC" },
         { icon: <FaWifi />, name: "WiFi" },
@@ -82,7 +82,7 @@ export default function Home() {
       name: "American Star Inn - Floydada",
       location: "Texas",
       link: "/floydada",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyuJbvWf_HufPlKFsGCzfoDTiScCxVjh7g8Q&s",
+      image: "https://static.readytotrip.com/upload/information_system_24/7/4/1/item_741709/information_items_741709.jpg",
       amenities: [
         { icon: <FaSnowflake />, name: "AC" },
         { icon: <FaWifi />, name: "WiFi" },

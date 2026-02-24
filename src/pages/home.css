@@ -2501,7 +2501,6 @@ body {
   height: clamp(32px, 8vw, 40px);
   border-radius: 50%;
   background: linear-gradient(135deg, #afb3b9 0%, #c5ccd3 100%);
-  color: white;
   display: flex;
   align-items: center;
   justify-content: center;

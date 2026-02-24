@@ -2,56 +2,57 @@ import React, { useState, useEffect } from 'react';
 import './baird.css';
 
 // --- 1. AccommodationCard Component ---
-const BairdAccommodationCard = ({ accommodation }) => {
+const AccommodationCard = ({ accommodation }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    if (accommodation.images.length <= 1) return;
-
     const timer = setInterval(() => {
       setCurrentImageIndex((prevIndex) =>
         prevIndex === accommodation.images.length - 1 ? 0 : prevIndex + 1
       );
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [accommodation.images.length]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="baird-page-room-card">
-      <div className="baird-page-room-gallery">
+    <div className="hotel-page-room-card">
+      <div className="hotel-page-room-gallery">
         {accommodation.images.map((img, index) => (
           <img
             key={index}
             src={img}
             alt={`${accommodation.title} view ${index + 1}`}
-            className={`baird-page-room-image ${index === currentImageIndex ? 'active' : ''}`}
-            loading="lazy"
+            className={`hotel-page-room-image ${index === currentImageIndex ? 'active' : ''}`}
           />
         ))}
-        <div className="baird-page-gallery-dots">
+        <div className="hotel-page-gallery-dots">
           {accommodation.images.map((_, index) => (
             <span
               key={index}
-              className={`baird-page-gallery-dot ${index === currentImageIndex ? 'active' : ''}`}
+              className={`hotel-page-gallery-dot ${index === currentImageIndex ? 'active' : ''}`}
             />
           ))}
         </div>
       </div>
 
-      <div className="baird-page-room-info">
-        <h3 className="baird-page-room-heading">{accommodation.title}</h3>
-        <p className="baird-page-room-description">{accommodation.subtitle}</p>
+      <div className="hotel-page-room-info">
+        <h3 className="hotel-page-room-heading">{accommodation.title}</h3>
+        <p className="hotel-page-room-description">{accommodation.subtitle}</p>
 
-        <div className="baird-page-amenities-list">
+        <div className="hotel-page-amenities-list">
           {accommodation.amenities.map((amenity, index) => (
-            <span key={index} className="baird-page-amenity-badge">
+            <span key={index} className="hotel-page-amenity-badge">
               ✓ {amenity}
             </span>
           ))}
         </div>
 
-        <button className="baird-page-book-button">
+        <button className="hotel-page-book-button">
           <span>Book Now</span>
           <span className="arrow">→</span>
         </button>
@@ -61,25 +62,24 @@ const BairdAccommodationCard = ({ accommodation }) => {
 };
 
 // --- 2. PropertyHighlights Component ---
-const BairdPropertyHighlights = () => {
+const PropertyHighlights = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
 
   const highlights = [
     // First slide - 3 cards
     [
       {
-        image: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=400",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVLwhe6PzWVRODajp5frunTgd99h8pbLLSQ&s",
         title: "AC",
         description: "Enjoy cool and comfortable air-conditioned rooms for a relaxing stay."
       },
       {
-        image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsDxvedfx1nhcV89HWJzJDGQg3kGorqetl0Q&s",
         title: "INTERNET - WiFi",
         description: "Stay connected with high-speed complimentary WiFi throughout the property."
       },
       {
-        image: "https://images.unsplash.com/photo-1504215680853-026ed2a45def?w=400",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGRQggRMrme5m_8OuCYROpn_MUZgi4Ks3eAQ&s",
         title: "PARKING",
         description: "Safe and spacious parking area available for all guests."
       }
@@ -90,53 +90,37 @@ const BairdPropertyHighlights = () => {
         image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=400",
         title: "TWIN BEDS",
         description: "Comfortable twin beds designed for a peaceful and restful sleep."
-      },
-      {
-        image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400",
-        title: "24/7 FRONT DESK",
-        description: "Round-the-clock assistance for all your needs and queries."
-      },
-      {
-        image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400",
-        title: "SWIMMING POOL",
-        description: "Relax and refresh in our seasonal outdoor swimming pool."
       }
     ]
   ];
 
   useEffect(() => {
-    if (isPaused) return;
-
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % highlights.length);
-    }, 4000);
+    }, 8000);
     return () => clearInterval(timer);
-  }, [highlights.length, isPaused]);
+  }, [highlights.length]);
 
   return (
-    <div
-      className="baird-page-highlights-showcase"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      <h2 className="baird-page-highlights-title">
-        <span className="baird-page-highlights-emoji"></span>
-        Aminities
+    <div className="hotel-page-highlights-showcase">
+      <h2 className="hotel-page-highlights-title">
+        <span className="hotel-page-highlights-emoji"></span>
+        Amenities
       </h2>
 
-      <div className="baird-page-highlights-wrapper">
-        <div className="baird-page-highlights-slides">
+      <div className="hotel-page-highlights-wrapper">
+        <div className="hotel-page-highlights-slides">
           {highlights.map((slideSet, slideIndex) => (
             <div
               key={slideIndex}
-              className={`baird-page-highlights-slide ${slideIndex === currentSlide ? 'active' : ''}`}
+              className={`hotel-page-highlights-slide ${slideIndex === currentSlide ? 'active' : ''}`}
             >
               {slideSet.map((highlight, cardIndex) => (
-                <div key={cardIndex} className="baird-page-highlight-card">
-                  <div className="baird-page-highlight-image">
-                    <img src={highlight.image} alt={highlight.title} loading="lazy" />
+                <div key={cardIndex} className="hotel-page-highlight-card">
+                  <div className="hotel-page-highlight-image">
+                    <img src={highlight.image} alt={highlight.title} />
                   </div>
-                  <div className="baird-page-highlight-text">
+                  <div className="hotel-page-highlight-text">
                     <h3>{highlight.title}</h3>
                     <p>{highlight.description}</p>
                   </div>
@@ -146,14 +130,12 @@ const BairdPropertyHighlights = () => {
           ))}
         </div>
 
-        <div className="baird-page-highlights-dots">
+        <div className="hotel-page-highlights-dots">
           {highlights.map((_, index) => (
             <button
               key={index}
-              className={`baird-page-highlights-dot ${index === currentSlide ? 'active' : ''}`}
+              className={`hotel-page-highlights-dot ${index === currentSlide ? 'active' : ''}`}
               onClick={() => setCurrentSlide(index)}
-              aria-label={`Go to slide ${index + 1}`}
-              aria-current={index === currentSlide ? 'true' : 'false'}
             />
           ))}
         </div>
@@ -163,9 +145,8 @@ const BairdPropertyHighlights = () => {
 };
 
 // --- 3. RoomsCarousel Component ---
-const BairdRoomsCarousel = ({ rooms }) => {
+const RoomsCarousel = ({ rooms }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
 
   // Group rooms into slides of 3
   const roomSlides = [];
@@ -174,51 +155,39 @@ const BairdRoomsCarousel = ({ rooms }) => {
   }
 
   useEffect(() => {
-    if (isPaused) return;
-
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % roomSlides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [roomSlides.length, isPaused]);
-  
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  }, [roomSlides.length]);
 
   return (
-    <div
-      className="baird-page-rooms-showcase"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      <h2 className="baird-page-rooms-title">
-        <span className="baird-page-rooms-emoji"></span>
+    <div className="hotel-page-rooms-showcase">
+      <h2 className="hotel-page-rooms-title">
+        <span className="hotel-page-rooms-emoji"></span>
         Our Rooms
       </h2>
 
-      <div className="baird-page-rooms-wrapper">
-        <div className="baird-page-rooms-slides">
+      <div className="hotel-page-rooms-wrapper">
+        <div className="hotel-page-rooms-slides">
           {roomSlides.map((slideSet, slideIndex) => (
             <div
               key={slideIndex}
-              className={`baird-page-rooms-slide ${slideIndex === currentSlide ? 'active' : ''}`}
+              className={`hotel-page-rooms-slide ${slideIndex === currentSlide ? 'active' : ''}`}
             >
               {slideSet.map((room, cardIndex) => (
-                <BairdAccommodationCard key={cardIndex} accommodation={room} />
+                <AccommodationCard key={cardIndex} accommodation={room} />
               ))}
             </div>
           ))}
         </div>
 
-        <div className="baird-page-rooms-dots">
+        <div className="hotel-page-rooms-dots">
           {roomSlides.map((_, index) => (
             <button
               key={index}
-              className={`baird-page-rooms-dot ${index === currentSlide ? 'active' : ''}`}
+              className={`hotel-page-rooms-dot ${index === currentSlide ? 'active' : ''}`}
               onClick={() => setCurrentSlide(index)}
-              aria-label={`Go to room slide ${index + 1}`}
-              aria-current={index === currentSlide ? 'true' : 'false'}
             />
           ))}
         </div>
@@ -227,8 +196,60 @@ const BairdRoomsCarousel = ({ rooms }) => {
   );
 };
 
-// --- 4. Main Component ---
-const Baird = () => {
+// --- 4. TVTRCarousel Component ---
+const TVTRCarousel = ({ tvtrItems }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Group TV & TR items into slides of 3
+  const tvtrSlides = [];
+  for (let i = 0; i < tvtrItems.length; i += 3) {
+    tvtrSlides.push(tvtrItems.slice(i, i + 3));
+  }
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % tvtrSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [tvtrSlides.length]);
+
+  return (
+    <div className="hotel-page-rooms-showcase">
+      <h2 className="hotel-page-rooms-title">
+        <span className="hotel-page-rooms-emoji"></span>
+         RV & RV T
+      </h2>
+
+      <div className="hotel-page-rooms-wrapper">
+        <div className="hotel-page-rooms-slides">
+          {tvtrSlides.map((slideSet, slideIndex) => (
+            <div
+              key={slideIndex}
+              className={`hotel-page-rooms-slide ${slideIndex === currentSlide ? 'active' : ''}`}
+            >
+              {slideSet.map((item, cardIndex) => (
+                <AccommodationCard key={cardIndex} accommodation={item} />
+              ))}
+            </div>
+          ))}
+        </div>
+
+        <div className="hotel-page-rooms-dots">
+          {tvtrSlides.map((_, index) => (
+            <button
+              key={index}
+              className={`hotel-page-rooms-dot ${index === currentSlide ? 'active' : ''}`}
+              onClick={() => setCurrentSlide(index)}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// --- 5. Main Component ---
+const Munday = () => {
   const [isPolicyOpen, setIsPolicyOpen] = useState(false);
   const [openSection, setOpenSection] = useState({
     cancellation: false,
@@ -256,148 +277,147 @@ const Baird = () => {
 
   const rooms = [
     {
-      title: "Standard Queen Room",
-      subtitle: "Comfortable queen room with essential amenities for a pleasant stay.",
+      title: "Double Bed Queen Non Smoking",
+      subtitle: "1 room, 2 guests maximum",
       images: [
-        "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500",
-        "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=500",
-        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500"
+        "https://prodimagesbucket.blob.core.windows.net/roomtype-images/32285/12357/21a348df-8b1f-4c53-9af2-f73db0445dfd",
+       
       ],
       amenities: ["Free WiFi", "AC", "TV", "Room Service"]
     },
     {
-      title: "Double Queen Standard",
-      subtitle: "Spacious room with two queen beds, perfect for families or groups.",
+      title: "Double Bed Smoking",
+      subtitle: "1 room, 2 guests maximum",
       images: [
-        "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=500",
-        "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=500",
-        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=500"
+        "https://prodimagesbucket.blob.core.windows.net/roomtype-images/32285/12356/0b7335a3-7ad5-4e19-8c6f-cbd1b711dc2f",
+        "https://prodimagesbucket.blob.core.windows.net/roomtype-images/32285/12356/0b7335a3-7ad5-4e19-8c6f-cbd1b711dc2f"
       ],
-      amenities: ["Two Queen Beds", "City View", "Mini Fridge", "Work Desk"]
+      amenities: ["Two Queen Beds", "Mini Fridge", "Balcony"]
     },
     {
-      title: "Superior Double Queen",
-      subtitle: "Enhanced room with premium amenities and two comfortable queen beds.",
+      title: "King Non Smoking",
+      subtitle: "1 room, 2 guests maximum",
       images: [
-        "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=500",
-        "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?w=500",
-        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500"
+        "https://prodimagesbucket.blob.core.windows.net/roomtype-images/32285/12355/2a4909b4-e75d-4d4f-86fd-41299852caae",
+        "https://prodimagesbucket.blob.core.windows.net/roomtype-images/32285/12355/2a4909b4-e75d-4d4f-86fd-41299852caae"
       ],
-      amenities: ["Premium Bedding", "Garden View", "Coffee Maker", "Work Desk"]
+      amenities: ["Premium Bedding",  "Coffee Maker", "Work Desk"]
+    },
+  ];
+
+  const tvtrItems = [
+    
+    {
+      title: "RV Spacke Backup",
+      subtitle: "1 room, 2 guests maximum",
+      images: [
+        "https://prodimagesbucket.blob.core.windows.net/roomtype-images/32285/12360/a6bb8a9a-234a-460d-a9bd-17ec2a7a135d"
+      ],
+      amenities: ["King Bed", "Premium View", "Mini Bar"]
     },
     {
-      title: "Superior King",
-      subtitle: "Upgraded king room with luxury touches and modern conveniences.",
+      title: "RV Park Pull Threw",
+      subtitle: "1 room, 2 guests maximum",
       images: [
-        "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=500",
-        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500",
-        "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500"
+        "https://prodimagesbucket.blob.core.windows.net/roomtype-images/32285/12359/9340a986-7768-4d92-b7fe-b81486bf8d32",
       ],
-      amenities: ["King Bed", "Premium View", "Jacuzzi", "Mini Bar"]
+      amenities: ["Private Balcony","Luxury Amenities", "Concierge"]
     },
     {
-      title: "Luxury King with Balcony",
-      subtitle: "Premium king suite featuring a private balcony with stunning views.",
+      title: "Kitchenette Queen Non Smoking",
+      subtitle: "1 room, 2 guests maximum.",
       images: [
-        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=500",
-        "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=500",
-        "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=500"
+        "https://prodimagesbucket.blob.core.windows.net/roomtype-images/32698/12355/365ebc77-1956-449c-a5c2-d38c8aae600f",
+        "https://prodimagesbucket.blob.core.windows.net/roomtype-images/32698/12355/365ebc77-1956-449c-a5c2-d38c8aae600f"
       ],
-      amenities: ["Private Balcony", "City View", "Luxury Amenities", "Concierge"]
-    },
-    {
-      title: "Luxury Double Queen",
-      subtitle: "High-end accommodation with two queen beds and luxury amenities.",
-      images: [
-        "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?w=500",
-        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500",
-        "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=500"
-      ],
-      amenities: ["Two Queen Beds", "Garden View", "Luxury Amenities", "Spa Access"]
+      amenities: ["Two Queen Beds", "Luxury Amenities", "Spa Access"]
     }
   ];
 
   return (
-    <div className="baird-page-container">
-      <div className="baird-page-card">
-        <h1 className="baird-page-name">{hotelInfo.name}</h1>
+    <div className="hotel-page-container">
+      <div className="hotel-page-card">
+        <h1 className="hotel-page-name">{hotelInfo.name}</h1>
 
-        <div className="baird-page-contact-info" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          <div className="baird-page-contact-item">
+        <div className="hotel-page-contact-info" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          <div className="hotel-page-contact-item">
             <span className="icon">📍</span>
             <span>{hotelInfo.address}</span>
           </div>
-          <div className="baird-page-contact-item">
+          <div className="hotel-page-contact-item">
             <span className="icon">📞</span>
             <a href={`tel:${hotelInfo.phone}`}>{hotelInfo.phone}</a>
           </div>
-          <div className="baird-page-contact-item">
+          <div className="hotel-page-contact-item">
             <span className="icon">✉️</span>
             <a href={`mailto:${hotelInfo.email}`}>{hotelInfo.email}</a>
           </div>
         </div>
 
-        <hr className="baird-page-divider" />
+        <hr className="hotel-page-divider" />
 
-        <div className="baird-page-about-section">
-          <h2 className="baird-page-about-title">About this resort</h2>
-          <p className="baird-page-about-description">{hotelInfo.about}</p>
+        <div className="hotel-page-about-section">
+          <p className="hotel-page-about-description">{hotelInfo.about}</p>
         </div>
 
-        <hr className="baird-page-divider" />
+        <hr className="hotel-page-divider" />
 
-        <BairdPropertyHighlights />
+        <PropertyHighlights />
 
-        <hr className="baird-page-divider" />
+        <hr className="hotel-page-divider" />
 
-        <BairdRoomsCarousel rooms={rooms} />
+        <RoomsCarousel rooms={rooms} />
 
-        <hr className="baird-page-divider" />
+        <hr className="hotel-page-divider" />
 
-        <div className="baird-page-rules-section">
-          <h2 className="baird-page-about-title">House rules</h2>
-          <div className="baird-page-policy-card">
-            <div className="baird-page-policy-header" onClick={togglePolicy}>
-              <div className="baird-page-policy-title-wrapper">
-                <span className="baird-page-check-icon">✓</span>
-                <h3 className="baird-page-policy-name">Cancellation Policy</h3>
+        <TVTRCarousel tvtrItems={tvtrItems} />
+
+        <hr className="hotel-page-divider" />
+
+        <div className="hotel-page-rules-section">
+          <h2 className="hotel-page-about-title">House Rules</h2>
+          <div className="hotel-page-policy-card">
+            <div className="hotel-page-policy-header" onClick={togglePolicy}>
+              <div className="hotel-page-policy-title-wrapper">
+                <span className="hotel-page-check-icon">✓</span>
+                <h3 className="hotel-page-policy-name">Cancellation Policy</h3>
               </div>
-              <span className={`baird-page-policy-arrow ${isPolicyOpen ? 'open' : ''}`}>&#9660;</span>
+              <span className={`hotel-page-policy-arrow ${isPolicyOpen ? 'open' : ''}`}>&#9660;</span>
             </div>
             {isPolicyOpen && (
-              <p className="baird-page-policy-text">
+              <p className="hotel-page-policy-text">
                 The hotel has a 24-hour cancellation policy. All rooms must be canceled 24 hours prior to the arrival date.
               </p>
             )}
           </div>
 
-          <div className="baird-page-policy-card">
-            <div className="baird-page-policy-header" onClick={() => toggleSection('terms')}>
-              <div className="baird-page-policy-title-wrapper">
-                <span className="baird-page-check-icon">✓</span>
-                <h3 className="baird-page-policy-name">Terms & Conditions</h3>
+          <div className="hotel-page-policy-card">
+            <div className="hotel-page-policy-header" onClick={() => toggleSection('terms')}>
+              <div className="hotel-page-policy-title-wrapper">
+                <span className="hotel-page-check-icon">✓</span>
+                <h3 className="hotel-page-policy-name">Terms & Conditions</h3>
               </div>
-              <span className={`baird-page-policy-arrow ${openSection.terms ? 'open' : ''}`}>&#9660;</span>
+              <span className={`hotel-page-policy-arrow ${openSection.terms ? 'open' : ''}`}>&#9660;</span>
             </div>
             {openSection.terms && (
-              <p className="baird-page-policy-text">
+              <p className="hotel-page-policy-text">
                 The hotel has a 24-hour cancellation policy. All rooms must be canceled 24 hours prior to the arrival date.
               </p>
             )}
           </div>
         </div>
 
-        <div className="baird-page-location-section">
-          <h2 className="baird-page-about-title">Location</h2>
-          <div className="baird-page-map-container">
+        <div className="hotel-page-location-section">
+          <h2 className="hotel-page-about-title">Location</h2>
+          <div className="hotel-page-map-container">
             <iframe
-              title="Baird Hotel Location"
+              title="Munday Hotel Location"
               width="100%"
               height="450"
               style={{ border: 0, borderRadius: '12px' }}
               loading="lazy"
               allowFullScreen
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3339.463365825316!2d-99.3931924!3d32.3945518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8654c6c9c6c9c6c9%3A0x0!2s620%20W%204th%20St%2C%20Baird%2C%20TX%2079504!5e0!3m2!1sen!2sus!4v1625687456123!5m2!1sen!2sus">
+              src="https://www.google.com/maps?ll=32.395127,-99.400739&z=16&t=m&hl=en&gl=US&mapclient=embed&q=620+W+4th+St+Baird,+TX+79504">
             </iframe>
           </div>
         </div>
@@ -406,4 +426,4 @@ const Baird = () => {
   );
 };
 
-export default Baird;
+export default Munday;
